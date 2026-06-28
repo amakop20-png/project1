@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+     <script src="https://kit.fontawesome.com/a3fd1d4ff0.js" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=dashboard" />
+     
+</head>
+<body>
+  <header>
+  <div class="logo">
+    <img src="chart.png" alt="Logo">
+  </div>
+
+  <div class="header-actions"></div>
+    <div class="user-section">
+
+        <!-- Notification -->
+        <div class="notification-container">
+
+            <button class="icon-btn" id="bellBtn">
+                <i class="fa-solid fa-bell"></i>
+                <span class="notification-count" id="notificationCount">3</span>
+            </button>
+
+            <div class="notification-dropdown" id="notificationDropdown">
+
+                <div class="dropdown-header">
+                    <h4>Notifications</h4>
+                    <button id="markAllRead">Mark all read</button>
+                </div>
+
+                <div class="notification-item unread">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>New message received</span>
+                </div>
+
+                <div class="notification-item unread">
+                    <i class="fa-solid fa-code-branch"></i>
+                    <span>Project updated</span>
+                </div>
+
+                <div class="notification-item unread">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Payment successful</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- User -->
+        <div class="user-container">
+
+            <img
+                src=""
+                alt="Profile"
+                class="user-avatar"
+                id="userBtn">
+
+            <div class="user-dropdown" id="userDropdown">
+
+                <div class="profile-header">
+                    <img
+                         <img
+        src="file/profile.jpg"
+        alt="Profile Picture"
+        class="profile-avatar"
+        id="profileAvatar"
+        onerror="this.src='https://ui-avatars.com/api/?name=Precious+Emmanuel&background=4f46e5&color=fff&size=180'"
+      >
+
+                    <div>
+                        <h4>Precious Emmanuel</h4>
+                        <p>amakop20@email.com</p>
+                    </div>
+                </div>
+
+                <a href="profile.html">
+                    <i class="fa-solid fa-user"></i>
+                    Profile
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Dashboard
+                </a>
+
+                <a href="#" class="logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</header>
+ <div class="container">
+    <aside>
+
+        <div class="top">
+            <div class="pan">
+                <img src="chart.png">
+                <h2>Study Flow</h2>
+            </div>
+            <div class="close" id="close-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+        <div class="sidebar">
+            <a href="">
+    <i class="fa-solid fa-chart-line"></i>
+    <h3>Dashboard</h3>
+</a>
+
+<a href="">
+    <i class="fa-solid fa-book-open"></i>
+    <h3>Courses</h3>
+</a>
+
+<a href="">
+    <i class="fa-solid fa-calendar-days"></i>
+    <h3>Schedules</h3>
+</a>
+
+<a href="">
+    <i class="fa-solid fa-file-lines"></i>
+    <h3>Assignments</h3>
+</a>
+
+<a href="">
+    <i class="fa-solid fa-chart-pie"></i>
+    <h3>Progress</h3>
+</a>
+
+<a href="">
+    <i class="fa-solid fa-comments"></i>
+    <h3>Discussions</h3>
+</a>
+
+<a href="">
+    <i class="fa-solid fa-award"></i>
+    <h3>Certificates</h3>
+</a>
+
+<a href="">
+    <i class="fa-solid fa-gear"></i>
+    <h3>Settings</h3>
+</a>
+        </div>
+    </aside>
+
+ </div>
+ <script src="script.js"></script>
+
+</body>
+</html>

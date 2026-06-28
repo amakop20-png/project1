@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="setting.css">
+     <script src="https://kit.fontawesome.com/a3fd1d4ff0.js" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=dashboard" />
+     
+</head>
+<body>
+   
+ 
+<div class="shell">
+ 
+  <!-- ══ SIDEBAR ══ -->
+  <aside class="sidebar">
+    <div class="top">
+    <div class="sidebar-logo">
+      <h2>Study Flow</h2>
+      <i class="fa-solid fa-bolt-lightning"></i>
+    </div>
+    <div class="close">
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+    </div>
+
+ 
+    <span class="nav-section-label">Workspace</span>
+    <a class="nav-item" href="#"><i class="fa-solid fa-house"></i> Dashboard</a>
+    <a class="nav-item" href="#"><i class="fa-solid fa-book-open"></i> Study Sessions</a>
+    <a class="nav-item" href="#"><i class="fa-solid fa-list-check"></i> Tasks</a>
+    <a class="nav-item" href="#"><i class="fa-solid fa-clock"></i> Pomodoro</a>
+ 
+    <span class="nav-section-label">Account</span>
+    <a class="nav-item active" href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+    <a class="nav-item" href="#"><i class="fa-solid fa-circle-question"></i> Help</a>
+    <a class="nav-item" href="#"><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
+  </aside>
+ 
+  <!-- ══ MAIN ══ -->
+  <main class="main">
+ 
+    <div class="page-header">
+      <h1>Settings</h1>
+      <p>Manage your preferences, appearance, and account.</p>
+    </div>
+ 
+    <div class="settings-grid">
+ 
+      <!-- ── 1. APPEARANCE ── -->
+      <div class="settings-card">
+        <div class="card-header">
+          <div class="card-header-icon"><i class="fa-solid fa-palette"></i></div>
+          <div class="card-header-text">
+            <h2>Appearance</h2>
+            <p>Choose how Study Flow looks for you</p>
+          </div>
+        </div>
+        <div class="card-body">
+ 
+          <!-- Theme picker -->
+          <div class="theme-picker">
+ 
+            <div class="theme-option selected" id="themeLight" data-theme-pick="light">
+              <div class="theme-preview light-prev">
+                <div class="prev-bar"></div>
+                <div class="prev-bar"></div>
+                <div class="prev-bar"></div>
+              </div>
+              <div class="theme-label">
+                <i class="fa-solid fa-sun"></i>
+                Light
+              </div>
+            </div>
+ 
+            <div class="theme-option" id="themeDark" data-theme-pick="dark">
+              <div class="theme-preview dark-prev">
+                <div class="prev-bar"></div>
+                <div class="prev-bar"></div>
+                <div class="prev-bar"></div>
+              </div>
+              <div class="theme-label">
+                <i class="fa-solid fa-moon"></i>
+                Dark
+              </div>
+            </div>
+ 
+          </div>
+ 
+          <!-- System auto -->
+          <div class="theme-auto-row">
+            <div class="theme-auto-info">
+              <i class="fa-solid fa-display"></i>
+              <div>
+                <span>Use system theme</span>
+                <small>Automatically switch based on your device</small>
+              </div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="systemThemeToggle">
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+ 
+          <!-- Accent colour -->
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-icon purple"><i class="fa-solid fa-droplet"></i></div>
+              <div class="setting-text">
+                <strong>Accent colour</strong>
+                <span>Used for buttons, links, and highlights</span>
+              </div>
+            </div>
+            <div class="accent-swatches">
+              <div class="swatch active" style="background:#7c3aed" data-accent="#7c3aed" title="Violet"></div>
+              <div class="swatch" style="background:#2563eb" data-accent="#2563eb" title="Blue"></div>
+              <div class="swatch" style="background:#059669" data-accent="#059669" title="Green"></div>
+              <div class="swatch" style="background:#d97706" data-accent="#d97706" title="Amber"></div>
+              <div class="swatch" style="background:#db2777" data-accent="#db2777" title="Pink"></div>
+            </div>
+          </div>
+ 
+          <!-- Font size -->
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-icon blue"><i class="fa-solid fa-text-height"></i></div>
+              <div class="setting-text">
+                <strong>Font size</strong>
+                <span>Base text size across the app</span>
+              </div>
+            </div>
+            <select class="setting-select" id="fontSizeSelect">
+              <option value="14">Small (14px)</option>
+              <option value="16" selected>Default (16px)</option>
+              <option value="18">Large (18px)</option>
+            </select>
+          </div>
+ 
+        </div>
+      </div>
+ 
+      <!-- ── 2. NOTIFICATIONS ── -->
+      <div class="settings-card">
+        <div class="card-header">
+          <div class="card-header-icon"><i class="fa-solid fa-bell"></i></div>
+          <div class="card-header-text">
+            <h2>Notifications</h2>
+            <p>Control what alerts you receive</p>
+          </div>
+        </div>
+        <div class="card-body">
+ 
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-icon green"><i class="fa-solid fa-envelope"></i></div>
+              <div class="setting-text">
+                <strong>Email notifications</strong>
+                <span>Session summaries and reminders</span>
+              </div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" checked>
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+ 
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-icon amber"><i class="fa-solid fa-clock"></i></div>
+              <div class="setting-text">
+                <strong>Pomodoro alerts</strong>
+                <span>Sound and notification when timer ends</span>
+              </div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" checked>
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+ 
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-icon purple"><i class="fa-solid fa-users"></i></div>
+              <div class="setting-text">
+                <strong>Study group activity</strong>
+                <span>When teammates post or mention you</span>
+              </div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox">
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+ 
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-icon blue"><i class="fa-solid fa-trophy"></i></div>
+              <div class="setting-text">
+                <strong>Streak reminders</strong>
+                <span>Daily nudge to keep your streak alive</span>
+              </div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" checked>
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+ 
+        </div>
+      </div>
+ 
+      <!-- ── 3. STUDY PREFERENCES ── -->
+      <div class="settings-card">
+        <div class="card-header">
+          <div class="card-header-icon"><i class="fa-solid fa-book-open"></i></div>
+          <div class="card-header-text">
+            <h2>Study preferences</h2>
+            <p>Customise your focus and session behaviour</p>
+          </div>
+        </div>
+        <div class="card-body">
+ 
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-icon amber"><i class="fa-solid fa-hourglass-half"></i></div>
+              <div class="setting-text">
+                <strong>Default session length</strong>
+                <span>How long each Pomodoro block lasts</span>
+              </div>
+            </div>
+            <select class="setting-select">
+              <option>20 min</option>
+              <option selected>25 min</option>
+              <option>30 min</option>
+              <option>45 min</option>
+            </select>
+          </div>
+ 
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-icon green"><i class="fa-solid fa-mug-hot"></i></div>
+              <div class="setting-text">
+                <strong>Break length</strong>
+                <span>Short break between sessions</span>
+              </div>
+            </div>
+            <select class="setting-select">
+              <option>3 min</option>
+              <option selected>5 min</option>
+              <option>10 min</option>
+            </select>
+          </div>
+ 
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-icon purple"><i class="fa-solid fa-volume-high"></i></div>
+              <div class="setting-text">
+                <strong>Focus sounds</strong>
+                <span>Ambient audio during study sessions</span>
+              </div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" checked>
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+ 
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-icon blue"><i class="fa-solid fa-eye-slash"></i></div>
+              <div class="setting-text">
+                <strong>Distraction blocker</strong>
+                <span>Hide non-essential UI during sessions</span>
+              </div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox">
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+ 
+        </div>
+      </div>
+ 
+      <!-- ── 4. ACCOUNT ── -->
+      <div class="settings-card">
+        <div class="card-header">
+          <div class="card-header-icon"><i class="fa-solid fa-user"></i></div>
+          <div class="card-header-text">
+            <h2>Account</h2>
+            <p>Your personal details and security</p>
+          </div>
+        </div>
+        <div class="card-body">
+ 
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-icon purple"><i class="fa-solid fa-lock"></i></div>
+              <div class="setting-text">
+                <strong>Two-factor authentication</strong>
+                <span>Add a second layer of login security</span>
+              </div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox">
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+ 
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-icon green"><i class="fa-solid fa-download"></i></div>
+              <div class="setting-text">
+                <strong>Export my data</strong>
+                <span>Download all your sessions and notes</span>
+              </div>
+            </div>
+            <button class="btn-discard" style="font-size:12px;padding:7px 14px;">Export</button>
+          </div>
+ 
+        </div>
+      </div>
+ 
+      <!-- ── 5. DANGER ZONE ── -->
+      <div class="settings-card danger-zone">
+        <div class="card-header">
+          <div class="card-header-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <div class="card-header-text">
+            <h2>Danger zone</h2>
+            <p>These actions cannot be undone</p>
+          </div>
+        </div>
+        <div class="card-body">
+ 
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-icon red"><i class="fa-solid fa-arrow-rotate-left"></i></div>
+              <div class="setting-text">
+                <strong>Reset all settings</strong>
+                <span>Restore every preference to default</span>
+              </div>
+            </div>
+            <button class="btn-danger">Reset</button>
+          </div>
+ 
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-icon red"><i class="fa-solid fa-trash"></i></div>
+              <div class="setting-text">
+                <strong>Delete account</strong>
+                <span>Permanently remove your account and all data</span>
+              </div>
+            </div>
+            <button class="btn-danger">Delete</button>
+          </div>
+ 
+        </div>
+      </div>
+ 
+    </div><!-- /settings-grid -->
+  </main>
+</div>
+ 
+<!-- Save bar -->
+<div class="save-bar" id="saveBar">
+  <p>You have unsaved changes</p>
+  <button class="btn-discard" id="discardBtn">Discard</button>
+  <button class="btn-save"    id="saveBtn">Save changes</button>
+</div>
+ <script src="setting.js"></script>
+</body>
+</html>

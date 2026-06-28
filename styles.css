@@ -1,0 +1,795 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", Arial, sans-serif;
+    background: #f8fafc;
+    color: #1f2937;
+    overflow-x: hidden;
+}
+
+
+  ╚══════════════════════════════════════════════════╝
+    */
+    .card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;   /* two equal columns */
+      width: min(900px, 95vw);          /* max 900px, never over screen width */
+      min-height: 560px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+      position: relative;
+      z-index: 1;
+    }
+ 
+    /* ─── LEFT: BRAND PANEL ───────────────────────── */
+    .brand-panel {
+      background: linear-gradient(145deg, #1a2540 0%, #0d1829 100%);
+      padding: 60px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+ 
+    /* Decorative circles inside the brand panel */
+    .brand-panel::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      right: -80px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 1px solid rgba(79,142,247,0.15);
+    }
+ 
+    .brand-panel::before {
+      content: '';
+      position: absolute;
+      bottom: -120px;
+      right: -120px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      border: 1px solid rgba(79,142,247,0.08);
+    }
+ 
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--text);
+    }
+ 
+    /* The icon/dot next to the logo */
+    .logo-dot {
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+    }
+ 
+    .brand-headline {
+      font-family: 'Sora', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--text);
+    }
+ 
+    .brand-headline span {
+      color: var(--accent);
+    }
+ 
+    .brand-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: 12px;
+    }
+ 
+    /* The three feature bullet points */
+    .features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+ 
+    .features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+ 
+    .features li::before {
+      content: '✓';
+      width: 20px;
+      height: 20px;
+      background: rgba(79,142,247,0.15);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 10px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+ 
+    /* ─── RIGHT: FORM PANEL ───────────────────────── */
+    .form-panel {
+      background: var(--card);
+      padding: 60px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+ 
+    .form-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+ 
+    .form-subtitle {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 36px;
+    }
+ 
+    /*
+    ╔══════════════════════════════════════════════════╗
+    ║  LESSON 6: Form Groups                           ║
+    ║  Each field is wrapped in a .form-group div.     ║
+    ║  This keeps the label, input, and error          ║
+    ║  together as one unit — easy to style.           ║
+    ╚══════════════════════════════════════════════════╝
+    */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 20px;
+    }
+ 
+    label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+ 
+    /*
+    ╔══════════════════════════════════════════════════╗
+    ║  LESSON 7: Input Styling                         ║
+    ║  :focus-visible → styles only keyboard focus     ║
+    ║  (not mouse click). Better accessibility.        ║
+    ║  transition → smooth animation on focus.         ║
+    ╚══════════════════════════════════════════════════╝
+    */
+    .input-wrap {
+      position: relative;           /* so the icon can be absolute inside */
+      display: flex;
+      align-items: center;
+    }
+ 
+    .input-icon {
+      position: absolute;
+      left: 14px;
+      color: var(--muted);
+      font-size: 16px;
+      pointer-events: none;         /* clicks pass through the icon to input */
+    }
+ 
+    input {
+      width: 100%;
+      padding: 13px 16px 13px 42px; /* left padding to make room for icon */
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;  /* smooth focus effect */
+    }
+ 
+    input::placeholder { color: #3a4455; }
+ 
+    /* When user focuses/clicks input — highlight with accent color */
+    input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+ 
+    /* For the password toggle button */
+    .toggle-pw {
+      position: absolute;
+      right: 12px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 15px;
+      padding: 4px;
+      line-height: 1;
+    }
+ 
+    .toggle-pw:hover { color: var(--text); }
+ 
+    /* Row for Remember Me + Forgot Password */
+    .form-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+      font-size: 0.82rem;
+    }
+ 
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--muted);
+      cursor: pointer;
+    }
+ 
+    /* Custom checkbox styling */
+    .remember input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      padding: 0;
+      accent-color: var(--accent);   /* modern way to color checkboxes */
+      cursor: pointer;
+    }
+ 
+    .forgot {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .forgot:hover { text-decoration: underline; }
+ 
+    /*
+    ╔══════════════════════════════════════════════════╗
+    ║  LESSON 8: The Login Button                      ║
+    ║  We use position: relative + z-index so the      ║
+    ║  ::after pseudo-element (the glow) sits behind.  ║
+    ║  On hover, the glow expands — feels premium.     ║
+    ╚══════════════════════════════════════════════════╝
+    */
+    .btn-login {
+      width: 100%;
+      padding: 14px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: 'Sora', sans-serif;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.15s, box-shadow 0.2s;
+      letter-spacing: 0.02em;
+    }
+ 
+    .btn-login:hover {
+      transform: translateY(-2px);   /* subtle lift on hover */
+      box-shadow: 0 8px 24px rgba(79,142,247,0.4);
+    }
+ 
+    .btn-login:active {
+      transform: translateY(0);      /* press down effect */
+    }
+ 
+    /* Shimmer sweep animation on hover */
+    .btn-login::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left 0.4s;
+    }
+ 
+    .btn-login:hover::after {
+      left: 140%;
+    }
+ 
+    /* Divider: ─── or ─── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 24px 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+ 
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+ 
+    /* Google Sign-in button */
+    .btn-google {
+      width: 100%;
+      padding: 12px;
+      background: transparent;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-size: 0.88rem;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+ 
+    .btn-google:hover {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(79,142,247,0.4);
+    }
+ 
+    .register-link {
+      text-align: center;
+      font-size: 0.83rem;
+      color: var(--muted);
+      margin-top: 24px;
+    }
+ 
+    .register-link a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .register-link a:hover { text-decoration: underline; }
+ 
+    /*
+    ╔══════════════════════════════════════════════════╗
+    ║  LESSON 9: Error Messages                        ║
+    ║  Hidden by default (display:none).               ║
+    ║  JavaScript adds the class .show to reveal them. ║
+    ╚══════════════════════════════════════════════════╝
+    */
+    .error-msg {
+      font-size: 0.78rem;
+      color: var(--error);
+      display: none;
+      align-items: center;
+      gap: 5px;
+    }
+    .error-msg.show { display: flex; }
+ 
+    /* Red border on invalid input */
+    input.invalid {
+      border-color: var(--error);
+      box-shadow: 0 0 0 3px rgba(255,92,114,0.15);
+    }
+ 
+    /* Toast notification (top feedback bar) */
+    .toast {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-80px);
+      background: #1e2d4a;
+      border: 1px solid var(--accent);
+      color: var(--text);
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 100;
+      white-space: nowrap;
+    }
+ 
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+ 
+    /*
+    ╔══════════════════════════════════════════════════╗
+    ║  LESSON 10: Responsive Design (Mobile First)     ║
+    ║  @media queries change the layout at small       ║
+    ║  screen sizes. max-width: 640px = phones.        ║
+    ╚══════════════════════════════════════════════════╝
+    */
+    @media (max-width: 640px) {
+
+    }
+
+/* =========================
+   HEADER
+========================= */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 14px 6%;
+
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border-bottom: 1px solid rgba(99, 102, 241, 0.08);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+    transition: all 0.3s ease;
+
+    border-radius: 0 0 18px 18px;
+}
+.logo img {
+    width: 140px;
+    height: auto;
+}
+
+.nav {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #334155;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.nav a:hover {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+   border-radius: 10px;
+    color: #7c3aed;
+    background-color: rgba(124, 58, 237, 0.10);
+    transform: translateY(-2px);
+}
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    max-width: 1200px;
+    margin: auto;
+
+    min-height: 85vh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+
+    align-items: center;
+
+    padding: 4rem 5%;
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content h1 {
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.highlight {
+    color: #7c3aed;
+}
+
+.hero-content p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #64748b;
+
+    max-width: 550px;
+    margin-bottom: 2rem;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    display: inline-block;
+
+    padding: 14px 30px;
+
+    text-decoration: none;
+    color: white;
+
+    font-weight: 600;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #8b5cf6,
+        #6d28d9
+    );
+
+    box-shadow:
+        0 10px 25px rgba(124, 58, 237, 0.25);
+
+    transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    display: inline-block;
+
+    padding: 14px 30px;
+
+    text-decoration: none;
+    color: #111827;
+
+    font-weight: 600;
+
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+
+    background: white;
+
+    transition: 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: #f8fafc;
+    transform: translateY(-3px);
+}
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 600px;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.08),
+        0 25px 60px rgba(124, 58, 237, 0.15);
+
+    transition: 0.4s ease;
+}
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 4rem 5%;
+}
+.container h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+.cards {
+    width: 100%;
+    height: 300px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+.feature {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+.feature:hover {
+    color: #000;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+.logo{
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+    border-radius: 100px;
+    width: 60px;
+    height: 60px;
+     margin: 0 auto 1rem;
+    padding:15px 20px;
+    color: white;
+}
+.logo i {
+       display: flex;
+    text-align: center;
+    align-items: center;
+    color: yellow;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+.feature h3 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+.feature p {
+    color: #64748b;
+    line-height: 1.6;
+}
+.logo2 {
+    display: flex;
+    gap: 10px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    color: #1f2937;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Logo image styling */
+.logo2 img {
+    width: 90px;
+    height: 82px;
+    
+    border-radius: 10px;
+   
+}
+
+/* Hover effect */
+.logo2:hover img {
+    transform: scale(1.08) rotate(-2deg);
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);
+}
+
+.logo2:hover {
+    color: #4f46e5;
+}
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px;
+  
+}
+
+.profile i {
+    width:300px;
+    font-size: 40px;
+    color: #6d28d9;
+    background: #ede9fe;
+    padding: 15px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.fa-circle-user {
+    font-size: 36px;
+    color: #000000;
+}
+.profile i:hover {
+    transform: scale(1.1);
+}
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+     html,body{
+        width: 100%;
+
+     }
+
+    header {
+        padding: 15px 20px;
+    }
+
+
+    .logo img {
+        width: 110px;
+    }
+
+    .nav {
+        gap: 1rem;
+    }
+
+    .nav a {
+        font-size: 0.9rem;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+
+        gap: 3rem;
+
+        padding: 3rem 1.5rem;
+
+        min-height: auto;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        margin-inline: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+        
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+    }
+
+    .hero-image img {
+        max-width: 450px;
+    }
+    .container{
+         margin: auto;
+         padding: 3rem 4%;
+    }
+    .cards{
+        display: grid;
+        height: 20vh;
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+}
