@@ -593,9 +593,118 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error('Could not load profile data:', err);
   }
 })();
+// ===============================
+// HAMBURGER TOGGLE MENU
+// ===============================
+const toggleMenu = document.querySelector('.toogle-menu');
+const nav        = document.querySelector('.nav');
+
+toggleMenu.addEventListener('click', () => {
+    toggleMenu.classList.toggle('active');
+    nav.classList.toggle('open');
+});
+
+// Close nav when a link is clicked
+nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        toggleMenu.classList.remove('active');
+        nav.classList.remove('open');
+    });
+});
+
+// Close nav when clicking outside
+document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target) && !toggleMenu.contains(e.target)) {
+        toggleMenu.classList.remove('active');
+        nav.classList.remove('open');
+    }
+});
 
 
+// ===============================
+// STICKY HEADER SHADOW ON SCROLL
+// ===============================
+const header = document.querySelector('header');
 
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+        header.style.boxShadow = '0 4px 24px rgba(0,0,0,0.10)';
+        header.style.background = 'rgba(255,255,255,0.98)';
+    } else {
+        header.style.boxShadow = '0 10px 30px rgba(0,0,0,0.05)';
+        header.style.background = 'rgba(255,255,255,0.92)';
+    }
+});
+
+
+// ===============================
+// ACTIVE NAV LINK ON SCROLL
+// ===============================
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav a');
+
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    sections.forEach(section => {
+        const top    = section.offsetTop - 100;
+        const bottom = top + section.offsetHeight;
+        const id     = section.getAttribute('id');
+
+        if (scrollY >= top && scrollY < bottom) {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${id}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+});
+
+
+// ===============================
+// SCROLL REVEAL ANIMATION
+// Cards and hero content fade in
+// as they enter the viewport
+// ===============================
+const revealElements = document.querySelectorAll(
+    '.feature, .hero-content, .hero-image'
+);
+
+revealElements.forEach(el => {
+    el.style.opacity    = '0';
+    el.style.transform  = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+});
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.style.opacity   = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }, index * 80);
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.15 });
+
+revealElements.forEach(el => observer.observe(el));
+
+
+// ===============================
+// SMOOTH SCROLL FOR NAV LINKS
+// ===============================
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
 
 
 

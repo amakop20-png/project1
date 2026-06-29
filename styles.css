@@ -17,10 +17,7 @@ body {
     overflow-x: hidden;
 }
 
-
-  ╚══════════════════════════════════════════════════╝
-    */
-    .card {
+   .card {
       display: grid;
       grid-template-columns: 1fr 1fr;   /* two equal columns */
       width: min(900px, 95vw);          /* max 900px, never over screen width */
@@ -238,6 +235,48 @@ body {
       line-height: 1;
     }
  
+    
+.toogle-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    padding: 4px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+ 
+.toogle-menu:hover {
+    background: #f3f4f6;
+}
+ 
+.toogle-menu span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #131314;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+    transform-origin: center;
+}
+ 
+/* Animated X when nav is open */
+.toogle-menu.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+ 
+.toogle-menu.active span:nth-child(2) {
+    opacity: 0;
+    width: 0;
+}
+ 
+.toogle-menu.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+ 
     .toggle-pw:hover { color: var(--text); }
  
     /* Row for Remember Me + Forgot Password */
@@ -426,10 +465,7 @@ body {
     ║  @media queries change the layout at small       ║
     ║  screen sizes. max-width: 640px = phones.        ║
     ╚══════════════════════════════════════════════════╝
-    */
-    @media (max-width: 640px) {
-
-    }
+  
 
 /* =========================
    HEADER
@@ -703,6 +739,8 @@ header {
   
 }
 
+
+
 .profile i {
     width:300px;
     font-size: 40px;
@@ -740,9 +778,59 @@ header {
     }
 
     .nav {
+      display: none;
         gap: 1rem;
     }
+   
 
+        /* Show hamburger */
+    .toogle-menu {
+        display: flex;
+    }
+ 
+    /* Hide nav by default on mobile */
+    .nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease, padding 0.3s ease;
+    }
+ 
+    /* Open state */
+    .open {
+        max-height: 300px;
+        padding: 0.5rem 0;
+    }
+ 
+    .nav a {
+        width: 100%;
+        padding: 0.85rem 2rem;
+        font-size: 0.9375rem;
+        border-bottom: 1px solid #f3f4f6;
+    }
+ 
+    .nav a:last-child {
+        border-bottom: none;
+    }
+ 
+    .nav a::after {
+        display: none;
+    }
+ 
+    .nav a:hover {
+        background: #f9fafb;
+        color: #4f46e5;
+    }
     .nav a {
         font-size: 0.9rem;
     }
