@@ -792,13 +792,13 @@ header {
     .nav {
         display: none;
         flex-direction: column;
-        align-items: flex-start;
+        
         gap: 0;
         position: absolute;
         top: 65px;
         left: 0;
         width: 100%;
-        background: #ffffff;
+        background: #312929;
         border-bottom: 1px solid #e5e7eb;
         padding: 0;
         max-height: 0;
