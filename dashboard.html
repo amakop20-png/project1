@@ -3,165 +3,598 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-     <script src="https://kit.fontawesome.com/a3fd1d4ff0.js" crossorigin="anonymous"></script>
-     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=dashboard" />
-     
+  <title>Dashboard — Study Flow</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (Reliable CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/shared-nav.css">
+  <link rel="stylesheet" href="css/setting.css">
+  <script src="js/theme.js"></script>
 </head>
-<body>
-  <header>
-  <div class="logo">
-    <img src="chart.png" alt="Logo">
-  </div>
+<body class="dashboard-page">
 
-  <div class="header-actions"></div>
-    <div class="user-section">
+  <main class="main">
 
-        <!-- Notification -->
-        <div class="notification-container">
+    <!-- ══════════════════ TOP UTILITY BAR (Notifications & Profile) ══════════════════ -->
+    <div class="header-actions">
+      <div class="notification-container">
+        <button class="icon-btn" id="bellBtn" aria-label="View notifications">
+          <i class="fa-solid fa-bell"></i>
+          <span class="notification-count" id="notificationCount">3</span>
+        </button>
 
-            <button class="icon-btn" id="bellBtn">
-                <i class="fa-solid fa-bell"></i>
-                <span class="notification-count" id="notificationCount">3</span>
-            </button>
-
-            <div class="notification-dropdown" id="notificationDropdown">
-
-                <div class="dropdown-header">
-                    <h4>Notifications</h4>
-                    <button id="markAllRead">Mark all read</button>
-                </div>
-
-                <div class="notification-item unread">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span>New message received</span>
-                </div>
-
-                <div class="notification-item unread">
-                    <i class="fa-solid fa-code-branch"></i>
-                    <span>Project updated</span>
-                </div>
-
-                <div class="notification-item unread">
-                    <i class="fa-solid fa-circle-check"></i>
-                    <span>Payment successful</span>
-                </div>
-
+        <div class="notification-dropdown" id="notificationDropdown">
+          <div class="dropdown-header">
+            <h4>Notifications</h4>
+            <button id="markAllRead">Mark all read</button>
+          </div>
+          <audio id="notificationSound">
+            <source src="sounds/notification.mp3" type="audio/mpeg">
+          </audio>
+          <div class="notification-item unread">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <div>
+              <span><strong>Assignment Due:</strong> Matrix Algebra due today at 11:59 PM</span>
+              <small>15m ago</small>
             </div>
-
+          </div>
+          <div class="notification-item unread">
+            <i class="fa-solid fa-comments"></i>
+            <div>
+              <span><strong>Discussion Reply:</strong> Dr. Chen replied to your question</span>
+              <small>1h ago</small>
+            </div>
+          </div>
+          <div class="notification-item unread">
+            <i class="fa-solid fa-award"></i>
+            <div>
+              <span><strong>Milestone:</strong> 5-day study streak unlocked! 🎉</span>
+              <small>3h ago</small>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <!-- User -->
-        <div class="user-container">
+      <div class="user-container">
+        <button class="user-avatar-btn" id="userBtn" aria-label="User menu">
+          <img
+            src="https://ui-avatars.com/api/?name=Precious+Emmanuel&background=4f46e5&color=fff&size=180"
+            alt="Profile"
+            class="avatar user-avatar">
+          <span class="user-name-inline">Precious E.</span>
+          <i class="fa-solid fa-chevron-down user-caret"></i>
+        </button>
 
+        <div class="user-dropdown" id="userDropdown">
+          <div class="profile-header">
             <img
-                src=""
-                alt="Profile"
-                class="user-avatar"
-                id="userBtn">
+              src="https://ui-avatars.com/api/?name=Precious+Emmanuel&background=4f46e5&color=fff&size=180"
+              alt="Profile Picture"
+              class="avatar"
+              id="dashAvatar"
+              onerror="this.src='https://ui-avatars.com/api/?name=Precious+Emmanuel&background=4f46e5&color=fff&size=180'">
 
-            <div class="user-dropdown" id="userDropdown">
-
-                <div class="profile-header">
-                    <img
-                         <img
-        src="file/profile.jpg"
-        alt="Profile Picture"
-        class="profile-avatar"
-        id="profileAvatar"
-        onerror="this.src='https://ui-avatars.com/api/?name=Precious+Emmanuel&background=4f46e5&color=fff&size=180'"
-      >
-
-                    <div>
-                        <h4>Precious Emmanuel</h4>
-                        <p>amakop20@email.com</p>
-                    </div>
-                </div>
-
-                <a href="profile.html">
-                    <i class="fa-solid fa-user"></i>
-                    Profile
-                </a>
-
-                <a href="#">
-                    <i class="fa-solid fa-gear"></i>
-                    Settings
-                </a>
-
-                <a href="#">
-                    <i class="fa-solid fa-chart-line"></i>
-                    Dashboard
-                </a>
-
-                <a href="#" class="logout">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    Logout
-                </a>
-
+            <div>
+              <h4 id="dashName">Precious Emmanuel</h4>
+              <p id="dashEmail">amakop20@email.com</p>
             </div>
+          </div>
 
+          <div class="dropdown-bio">
+            <p id="dashBio">
+              Learning Computer Science & Further Math. <a href="profile.html">Edit →</a>
+            </p>
+          </div>
+
+          <a href="profile.html">
+            <i class="fa-solid fa-user"></i>
+            Profile
+          </a>
+          <a href="setting.html">
+            <i class="fa-solid fa-gear"></i>
+            Settings
+          </a>
+          <a href="dashboard.html" class="active">
+            <i class="fa-solid fa-chart-line"></i>
+            Dashboard
+          </a>
+          <a href="signup.html" class="logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+          </a>
         </div>
-
+      </div>
     </div>
-</header>
- <div class="container">
-    <aside>
 
-        <div class="top">
-            <div class="pan">
-                <img src="chart.png">
-                <h2>Study Flow</h2>
-            </div>
-            <div class="close" id="close-btn">
-                <i class="fa-solid fa-xmark"></i>
-            </div>
+    <!-- ══════════════════ SIDEBAR (Professional SaaS Taxonomy) ══════════════════ -->
+    <aside class="sidebar" id="appSidebar">
+      <div class="top">
+        <div class="sidebar-logo">
+          <div class="brand-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="brand-text">
+            <h2>Study<strong>Flow</strong></h2>
+            <span class="brand-sub">LEARNING SUITE</span>
+          </div>
         </div>
-        <div class="sidebar">
-            <a href="">
-    <i class="fa-solid fa-chart-line"></i>
-    <h3>Dashboard</h3>
-</a>
+        <button class="close" id="close-btn" aria-label="Close sidebar">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
 
-<a href="">
-    <i class="fa-solid fa-book-open"></i>
-    <h3>Courses</h3>
-</a>
+      <nav class="sidebar-nav" aria-label="Main Navigation">
+        <!-- LEARN CATEGORY -->
+        <span class="nav-section-label">Learn</span>
+        <a href="dashboard.html" class="nav-item active">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="courses.html" class="nav-item">
+                <i class="fa-solid fa-book-open text-primary"></i>
+          <span>My Courses</span>
+        </a>
+        <a href="courses.html?tab=explore" class="nav-item">
+          <i class="fa-solid fa-compass"></i>
+          <span>Explore</span>
+        </a>
 
-<a href="">
-    <i class="fa-solid fa-calendar-days"></i>
-    <h3>Schedules</h3>
-</a>
+        <!-- PLAN CATEGORY -->
+        <span class="nav-section-label">Plan</span>
+        <a href="schedule.html" class="nav-item">
+          <i class="fa-solid fa-calendar-days"></i>
+          <span>Schedule</span>
+        </a>
+        <a href="assignment.html" class="nav-item">
+          <i class="fa-solid fa-list-check"></i>
+          <span>Assignments</span>
+          <span class="nav-badge alert">3</span>
+        </a>
 
-<a href="">
-    <i class="fa-solid fa-file-lines"></i>
-    <h3>Assignments</h3>
-</a>
+        <!-- TRACK & CONNECT CATEGORY -->
+        <span class="nav-section-label">Track & Connect</span>
+        <a href="learning.html" class="nav-item">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span>Progress</span>
+        </a>
+        <a href="courses.html#discussions" class="nav-item">
+          <i class="fa-solid fa-comments"></i>
+          <span>Discussions</span>
+        </a>
+        <a href="learning.html#certificates" class="nav-item">
+          <i class="fa-solid fa-award"></i>
+          <span>Certificates</span>
+        </a>
 
-<a href="">
-    <i class="fa-solid fa-chart-pie"></i>
-    <h3>Progress</h3>
-</a>
-
-<a href="">
-    <i class="fa-solid fa-comments"></i>
-    <h3>Discussions</h3>
-</a>
-
-<a href="">
-    <i class="fa-solid fa-award"></i>
-    <h3>Certificates</h3>
-</a>
-
-<a href="">
-    <i class="fa-solid fa-gear"></i>
-    <h3>Settings</h3>
-</a>
+        <!-- ACCOUNT CATEGORY (Bottom Pinned) -->
+        <div class="sidebar-bottom-group">
+          <span class="nav-section-label">Account</span>
+          <a href="profile.html" class="nav-item">
+            <i class="fa-solid fa-user"></i>
+            <span>Profile</span>
+          </a>
+          <a href="setting.html" class="nav-item">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+          </a>
+          <a href="signup.html" class="nav-item logout-link">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Sign Out</span>
+          </a>
         </div>
+      </nav>
     </aside>
 
- </div>
- <script src="script.js"></script>
+    <!-- ══════════════════ DASHBOARD CONTENT VIEW ══════════════════ -->
+    <div class="dashboard-content">
 
+      <!-- MOBILE TOGGLE BAR -->
+      <div class="header-toggle mobile-flex-header" aria-label="Open navigation">
+        <div class="mobile-logo-container">
+          <div class="brand-icon sm">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <span class="mobile-brand">Study<strong>Flow</strong></span>
+        </div>
+        <button id="sidebarOpenBtn" class="toogle-menu" type="button" aria-label="Open sidebar">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+      <!-- ══════════════════ 1. WELCOME HERO SECTION ══════════════════ -->
+      <header class="dashboard-hero-card">
+        <div class="hero-text-content">
+          <div class="hero-eyebrow">
+            <span class="status-indicator-dot"></span>
+            <span>OVERVIEW & MOMENTUM</span>
+          </div>
+          <h1>Welcome back, Precious! 👋</h1>
+          <p class="hero-lead">You're maintaining a <strong>5-day study streak</strong>. Keep the momentum going today.</p>
+        </div>
+        <div class="hero-cta-box">
+          <a href="study.html" class="sf-btn sf-btn-primary">
+            <i class="fa-solid fa-play"></i>
+            <span>Resume Lesson</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- ══════════════════ 2. 4-METRIC LEARNING STRIP ══════════════════ -->
+      <section class="metrics-strip" aria-label="Learning Statistics">
+        <div class="metric-card">
+          <div class="metric-icon-wrap primary">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <div class="metric-data">
+            <span class="metric-number">4</span>
+            <span class="metric-label">Active Courses</span>
+          </div>
+          <span class="metric-trend positive"><i class="fa-solid fa-arrow-trend-up"></i> On track</span>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon-wrap primary">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+          </div>
+          <div class="metric-data">
+            <span class="metric-number">3</span>
+            <span class="metric-label">Due This Week</span>
+          </div>
+          <span class="metric-trend alert"><i class="fa-solid fa-circle-exclamation"></i> 2 today</span>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon-wrap primary">
+            <i class="fa-solid fa-fire"></i>
+          </div>
+          <div class="metric-data">
+            <span class="metric-number">5 Days</span>
+            <span class="metric-label">Study Streak</span>
+          </div>
+          <span class="metric-trend neutral"><i class="fa-solid fa-bolt"></i> Personal best</span>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon-wrap primary">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <div class="metric-data">
+            <span class="metric-number">87%</span>
+            <span class="metric-label">Weekly Progress</span>
+          </div>
+          <span class="metric-trend positive"><i class="fa-solid fa-check"></i> 4.5/5.0 hrs</span>
+        </div>
+      </section>
+
+      <!-- ══════════════════ MAIN 2-COLUMN WORKSPACE GRID ══════════════════ -->
+      <div class="dashboard-grid-layout">
+
+        <!-- ─── PRIMARY COLUMN (70% - Core Learning) ─── -->
+        <div class="dashboard-primary-feed">
+
+          <!-- ══════════════════ 3. CONTINUE LEARNING HERO COMPONENT ══════════════════ -->
+          <section class="continue-learning-panel">
+            <div class="panel-header">
+              <div class="header-with-badge">
+                <span class="badge-pill highlight">IN PROGRESS</span>
+                <h2>Continue Where You Left Off</h2>
+              </div>
+              <span class="last-studied-tag"><i class="fa-regular fa-clock"></i> Active today</span>
+            </div>
+
+            <div class="continue-course-card">
+              <div class="continue-card-content">
+                <div class="subject-tag">MATHEMATICS & COMPUTATION</div>
+                <h3 class="continue-title">Dive Deep in Further Mathematics</h3>
+                <p class="current-lesson">
+                  <i class="fa-solid fa-circle-play"></i>
+                  <span>Next Lesson: <strong>Lesson 8 — Matrix Transformations & Inverses</strong> (18 mins)</span>
+                </p>
+
+                <div class="continue-progress-wrap">
+                  <div class="progress-meta">
+                    <span class="meta-label">Course Progress (8 of 12 lessons)</span>
+                    <span class="meta-val">68%</span>
+                  </div>
+                  <div class="sf-progress-track">
+                    <div class="sf-progress-bar" style="width: 68%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="continue-card-action">
+                <a href="study.html" class="sf-btn sf-btn-primary sf-btn-lg">
+                  <span>Resume Lesson</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <!-- ══════════════════ 4. ENROLLED COURSES SECTION ══════════════════ -->
+          <section class="enrolled-courses-panel">
+            <div class="panel-header">
+              <h2>Enrolled Courses</h2>
+              <a href="courses.html" class="sf-link">View All Courses <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="courses-cards-grid">
+
+              <!-- Course Card 1 -->
+              <article class="course-card-item">
+                <div class="course-item-header">
+                  <span class="course-badge in-progress">In Progress</span>
+                  <span class="course-duration"><i class="fa-regular fa-clock"></i> 8 hrs</span>
+                </div>
+                <div class="course-item-body">
+                  <span class="course-category">COMPUTER SCIENCE</span>
+                  <h4 class="course-heading">Advanced CSS & Responsive Architecture</h4>
+                  <p class="course-tutor"><i class="fa-solid fa-chalkboard-user"></i> Alex Martinez</p>
+                </div>
+                <div class="course-item-footer">
+                  <div class="course-progress-block">
+                    <div class="progress-meta-sm">
+                      <span>78% complete</span>
+                      <span>14/18 lessons</span>
+                    </div>
+                    <div class="sf-progress-track sm">
+                      <div class="sf-progress-bar" style="width: 78%;"></div>
+                    </div>
+                  </div>
+                  <a href="study.html" class="sf-btn sf-btn-primary">Continue</a>
+                </div>
+              </article>
+
+              <!-- Course Card 2 -->
+              <article class="course-card-item">
+                <div class="course-item-header">
+                  <span class="course-badge in-progress">In Progress</span>
+                  <span class="course-duration"><i class="fa-regular fa-clock"></i> 12 hrs</span>
+                </div>
+                <div class="course-item-body">
+                  <span class="course-category">EARTH SCIENCES</span>
+                  <h4 class="course-heading">Introduction to Physical Geography</h4>
+                  <p class="course-tutor"><i class="fa-solid fa-chalkboard-user"></i> Dr. Michael Chen</p>
+                </div>
+                <div class="course-item-footer">
+                  <div class="course-progress-block">
+                    <div class="progress-meta-sm">
+                      <span>42% complete</span>
+                      <span>5/12 lessons</span>
+                    </div>
+                    <div class="sf-progress-track sm">
+                      <div class="sf-progress-bar" style="width: 42%;"></div>
+                    </div>
+                  </div>
+                  <a href="study.html" class="sf-btn sf-btn-primary">Continue</a>
+                </div>
+              </article>
+
+              <!-- Course Card 3 -->
+              <article class="course-card-item">
+                <div class="course-item-header">
+                  <span class="course-badge in-progress">In Progress</span>
+                  <span class="course-duration"><i class="fa-regular fa-clock"></i> 6 hrs</span>
+                </div>
+                <div class="course-item-body">
+                  <span class="course-category">AGRICULTURE</span>
+                  <h4 class="course-heading">Introduction to Agricultural Science</h4>
+                  <p class="course-tutor"><i class="fa-solid fa-chalkboard-user"></i> Sarah Johnson</p>
+                </div>
+                <div class="course-item-footer">
+                  <div class="course-progress-block">
+                    <div class="progress-meta-sm">
+                      <span>65% complete</span>
+                      <span>8/12 lessons</span>
+                    </div>
+                    <div class="sf-progress-track sm">
+                      <div class="sf-progress-bar" style="width: 65%;"></div>
+                    </div>
+                  </div>
+                  <a href="study.html" class="sf-btn sf-btn-primary">Continue</a>
+                </div>
+              </article>
+
+              <!-- Course Card 4 (Completed) -->
+              <article class="course-card-item completed">
+                <div class="course-item-header">
+                  <span class="course-badge completed">Completed</span>
+                  <span class="course-duration"><i class="fa-solid fa-award"></i> Certificate</span>
+                </div>
+                <div class="course-item-body">
+                  <span class="course-category">DESIGN</span>
+                  <h4 class="course-heading">Web Design & Interface Fundamentals</h4>
+                  <p class="course-tutor"><i class="fa-solid fa-chalkboard-user"></i> Emma Williams</p>
+                </div>
+                <div class="course-item-footer">
+                  <div class="course-progress-block">
+                    <div class="progress-meta-sm">
+                      <span>100% complete</span>
+                      <span>Passed assessment</span>
+                    </div>
+                    <div class="sf-progress-track sm">
+                      <div class="sf-progress-bar success" style="width: 100%;"></div>
+                    </div>
+                  </div>
+                  <a href="learning.html#certificates" class="sf-btn sf-btn-primary">View Certificate</a>
+                </div>
+              </article>
+
+            </div>
+          </section>
+
+          <!-- ══════════════════ 5. PEER DISCUSSIONS & COMMUNITY ══════════════════ -->
+          <section class="rail-card community-insights-panel">
+            <div class="rail-card-header">
+              <div class="header-icon-title">
+                <i class="fa-solid fa-comments text-primary"></i>
+                <h3>Active Discussions & Study Groups</h3>
+              </div>
+              <a href="courses.html#discussions" class="sf-link-xs">Join discussions</a>
+            </div>
+
+            <div class="discussion-list">
+              <div class="discussion-row">
+                <div class="discussion-pill hot"><i class="fa-solid fa-fire"></i> Hot</div>
+                <div class="discussion-info">
+                  <h4>Matrix Algebra: Understanding Eigenvalue transformations</h4>
+                  <p>Started by <strong>Sarah J.</strong> in <em>Further Mathematics</em> • 14 replies</p>
+                </div>
+                <a href="courses.html#discussions" class="sf-btn sf-btn-primary">View Thread</a>
+              </div>
+
+              <div class="discussion-row">
+                <div class="discussion-pill new"><i class="fa-solid fa-sparkles"></i> New</div>
+                <div class="discussion-info">
+                  <h4>CSS Grid vs Flexbox for complex SaaS dashboard layouts</h4>
+                  <p>Started by <strong>Alex M.</strong> in <em>Advanced CSS</em> • 8 replies</p>
+                </div>
+                <a href="courses.html#discussions" class="sf-btn sf-btn-primary">View Thread</a>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ─── SECONDARY COLUMN (30% - Utility & Execution Rail) ─── -->
+        <aside class="dashboard-utility-rail">
+
+          <!-- ══════════════════ 6. UPCOMING ASSIGNMENTS & DEADLINES ══════════════════ -->
+          <section class="rail-card assignments-rail-card">
+            <div class="rail-card-header">
+              <div class="header-icon-title">
+                <i class="fa-solid fa-list-check text-primary"></i>
+                <h3>Pending Assignments</h3>
+              </div>
+              <a href="assignment.html" class="sf-link-xs">View all (3)</a>
+            </div>
+
+            <div class="task-list">
+              <!-- Task 1: Urgent -->
+              <div class="task-item urgent sf-card">
+                <div class="task-status-bar"></div>
+                <div class="task-details">
+                  <span class="task-subject">MATHEMATICS</span>
+                  <h4 class="task-name">Algebra Matrix Practice Set</h4>
+                  <span class="task-deadline alert"><i class="fa-regular fa-clock"></i> Due today at 11:59 PM</span>
+                </div>
+                <a href="assignment.html" class="sf-btn sf-btn-primary">Submit</a>
+              </div>
+
+              <!-- Task 2: Approaching -->
+              <div class="task-item sf-card">
+                <div class="task-status-bar"></div>
+                <div class="task-details">
+                  <span class="task-subject">GEOGRAPHY</span>
+                  <h4 class="task-name">Physical Systems Lab Report</h4>
+                  <span class="task-deadline warning"><i class="fa-regular fa-clock"></i> Due tomorrow, 5:00 PM</span>
+                </div>
+                <a href="assignment.html" class="sf-btn sf-btn-primary">Open</a>
+              </div>
+
+              <!-- Task 3: Later this week -->
+              <div class="task-item sf-card">
+                <div class="task-status-bar"></div>
+                <div class="task-details">
+                  <span class="task-subject">AGRICULTURE</span>
+                  <h4 class="task-name">Soil Chemistry Assessment Quiz</h4>
+                  <span class="task-deadline neutral"><i class="fa-regular fa-calendar"></i> Due Friday, Oct 24</span>
+                </div>
+                <a href="assignment.html" class="sf-btn sf-btn-primary">Open</a>
+              </div>
+            </div>
+          </section>
+
+          <!-- ══════════════════ 7. TODAY'S STUDY SCHEDULE ══════════════════ -->
+          <section class="rail-card schedule-rail-card">
+            <div class="rail-card-header">
+              <div class="header-icon-title">
+                <i class="fa-solid fa-calendar-day text-primary"></i>
+                <h3>Today's Study Plan</h3>
+              </div>
+              <a href="schedule.html" class="sf-link-xs">Manage</a>
+            </div>
+
+            <div class="schedule-timeline">
+              <div class="timeline-entry done sf-card">
+                <div class="timeline-marker"><i class="fa-solid fa-check"></i></div>
+                <div class="timeline-details">
+                  <span class="timeline-time">09:00 AM – 10:00 AM</span>
+                  <strong class="timeline-title">Further Mathematics</strong>
+                  <p class="timeline-sub">Completed Lesson 7 • 1 hr</p>
+                </div>
+              </div>
+
+              <div class="timeline-entry current sf-card">
+                <div class="timeline-marker"><i class="fa-solid fa-play"></i></div>
+                <div class="timeline-details">
+                  <span class="timeline-time">02:00 PM – 03:00 PM (Up Next)</span>
+                  <strong class="timeline-title">Physical Geography Quiz</strong>
+                  <p class="timeline-sub">Live Study Session</p>
+                </div>
+              </div>
+
+              <div class="timeline-entry upcoming sf-card">
+                <div class="timeline-marker"><i class="fa-solid fa-circle"></i></div>
+                <div class="timeline-details">
+                  <span class="timeline-time">05:30 PM – 06:30 PM</span>
+                  <strong class="timeline-title">Advanced CSS Flexbox Lab</strong>
+                  <p class="timeline-sub">Hands-on practice</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ══════════════════ 8. CERTIFICATE & MILESTONE QUICK CARD ══════════════════ -->
+          <section class="rail-card milestone-rail-card">
+            <div class="milestone-card-inner sf-card">
+              <div class="milestone-badge-box">
+                <i class="fa-solid fa-award text-primary"></i>
+              </div>
+              <div class="milestone-content">
+                <h4>Next Certificate in Reach</h4>
+                <p>You are only <strong>2 lessons away</strong> from unlocking your <em>Advanced CSS Specialist</em> certificate.</p>
+                <a href="study.html" class="sf-btn sf-btn-primary">Finish Lessons</a>
+              </div>
+            </div>
+          </section>
+
+          <!-- ══════════════════ 9. CERTIFICATE SECTION ══════════════════ -->
+          <section class="rail-card certificate-rail-card">
+            <div class="rail-card-header">
+              <div class="header-icon-title">
+                <i class="fa-solid fa-certificate text-primary"></i>
+                <h3>Certificates</h3>
+              </div>
+              <a href="learning.html#certificates" class="sf-link-xs">View all</a>
+            </div>
+
+            <div class="certificate-card sf-card">
+              <div class="certificate-card-icon">
+                <i class="fa-solid fa-award"></i>
+              </div>
+              <div class="certificate-card-content">
+                <span class="certificate-tag">READY TO CLAIM</span>
+                <h4>Advanced CSS Specialist</h4>
+                <p>Complete 2 more lessons to unlock and download your certificate.</p>
+                <a href="learning.html#certificates" class="sf-btn sf-btn-primary">Open Certificates</a>
+              </div>
+            </div>
+          </section>
+
+        </aside>
+
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/theme.js"></script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>

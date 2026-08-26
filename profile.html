@@ -4,96 +4,184 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile — Study Flow</title>
-  <link rel="stylesheet" href="profile.css">
+  <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a3fd1d4ff0.js" crossorigin="anonymous"></script>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="profile.css">
+  <link rel="stylesheet" href="css/shared-nav.css">
+  <script src="js/theme.js"></script>
 </head>
-<body>
+<body class="dashboard-page profile-page">
 
-<div class="profile-card">
+  <!-- Top App Bar Navigation -->
+  <div class="profile-top-nav">
+    <a href="dashboard.html" class="profile-back-link">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span>Back to Dashboard</span>
+    </a>
+    <div class="nav-right-actions">
+      <a href="setting.html" class="sf-btn sf-btn-outline-sm">
+        <i class="fa-solid fa-gear"></i> Settings
+      </a>
+      <a href="signup.html" class="sf-btn sf-btn-ghost-sm" style="color: var(--danger);">
+        <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+      </a>
+    </div>
+  </div>
 
-  <!-- Cover Banner -->
-  <div class="profile-banner"></div>
+  <div class="profile-card sf-card" style="margin-top: 20px; margin-bottom: 40px;">
 
-  <!-- Profile Header -->
-  <div class="profile-header">
+    <!-- Cover Banner -->
+    <div class="profile-banner"></div>
 
-    <div class="avatar-wrapper">
-      <img
-        src="file/profile.jpg"
-        alt="Profile Picture"
-        class="profile-avatar"
-        id="profileAvatar"
-        onerror="this.src='https://ui-avatars.com/api/?name=Precious+Emmanuel&background=4f46e5&color=fff&size=180'"
-      >
-      <button type="button" class="change-photo-btn" id="changePhotoBtn" title="Change photo">
-        <i class="fa-solid fa-camera"></i>
-      </button>
-      <input type="file" id="imageUpload" accept="image/*" hidden>
+    <!-- Profile Header -->
+    <div class="profile-header">
+
+      <div class="avatar-wrapper">
+        <img
+          src="https://ui-avatars.com/api/?name=Precious+Emmanuel&background=4f46e5&color=fff&size=180"
+          alt="Profile Picture"
+          class="profile-avatar"
+          id="profileAvatar"
+          onerror="this.src='https://ui-avatars.com/api/?name=Precious+Emmanuel&background=4f46e5&color=fff&size=180'"
+        >
+        <button type="button" class="change-photo-btn" id="changePhotoBtn" title="Change photo">
+          <i class="fa-solid fa-camera"></i>
+        </button>
+        <input type="file" id="imageUpload" accept="image/*" style="display:none;">
+      </div>
+
+      <div class="profile-info">
+        <h2 id="profileName">Precious Emmanuel</h2>
+        <p class="headline" id="profileHeadline">Frontend Developer &amp; Student at Rivers State University</p>
+        <p class="location" id="profileLocation">
+          <i class="fa-solid fa-location-dot"></i>
+          Port Harcourt, Rivers State, Nigeria
+        </p>
+        <div class="profile-links">
+          <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
+          <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          <a href="#" target="_blank"><i class="fa-solid fa-globe"></i> Portfolio</a>
+        </div>
+      </div>
+
     </div>
 
-    <div class="profile-info">
-      <h2 id="profileName">Precious Emmanuel</h2>
+    <!-- About Section -->
+    <div class="profile-section">
+      <h3>About</h3>
+      <textarea id="aboutTextarea" rows="4" placeholder="Write a short bio about yourself...">Passionate Frontend Developer focused on building responsive, accessible, and user-friendly web applications. Skilled in HTML, CSS, JavaScript, and modern UI design principles. Constantly learning new technologies and improving my development workflow.</textarea>
+    </div>
 
-      <p class="headline" id="profileHeadline">
-
-      </p>
-
-      <p class="location" id="profileLocation">
-        <i class="fa-solid fa-location-dot"></i>
-        Port Harcourt, Rivers State, Nigeria
-      </p>
-
-      <div class="profile-links">
-        <a href="#"><i class="fa-brands fa-linkedin"></i> Facebook</a>
-        <a href="#"><i class="fa-brands fa-github"></i>Instagram</a>
-        <a href="#"><i class="fa-solid fa-globe"></i> Portfolio</a>
+    <!-- Enrolled Subjects -->
+    <div class="profile-section">
+      <h3>Enrolled Subjects</h3>
+      <div class="skills-list">
+        <span>Mathematics</span>
+        <span>Further Mathematics</span>
+        <span>Agricultural Science</span>
+        <span>Physics</span>
+        <span>Chemistry</span>
+        <span>English Language</span>
       </div>
     </div>
 
-  </div>
-
-  <!-- About -->
-  <div class="profile-section">
-    <h3>About</h3>
-    <textarea id="aboutTextarea" rows="5">Passionate Frontend Developer focused on building responsive, accessible, and user-friendly web applications. Skilled in HTML, CSS, JavaScript, and modern UI design principles. Constantly learning new technologies and improving my development workflow.</textarea>
-  </div>
-
-  <!-- Skills -->
-  <div class="profile-section">
-    <h3>subjects</h3>
-    <div class="skills-list">
-      <span>Maths</span>
-      <span>English</span>
-      <span>Physics</span>
-      <span>Chemistry</span>
-      <span>Biology</span>
-      <span>Geogreaphy</span>
+    <!-- Contact Information -->
+    <div class="profile-section">
+      <h3>Contact Information</h3>
+      <div class="form-group">
+        <label for="emailInput">Email Address</label>
+        <input type="email" id="emailInput" value="amakop20@gmail.com">
+      </div>
+      <div class="form-group">
+        <label for="phoneInput">Phone Number</label>
+        <input type="tel" id="phoneInput" value="+234 701 389 2949">
+      </div>
     </div>
+
+    <div class="profile-section" style="padding-top: 0;">
+      <button type="button" class="save-btn" id="saveBtn">
+        <i class="fa-solid fa-floppy-disk"></i> Save Profile Changes
+      </button>
+    </div>
+
   </div>
 
-  <!-- Contact Information -->
-  <div class="profile-section">
-    <h3>Contact Information</h3>
-    <div class="form-group">
-      <label for="emailInput">Email</label>
-      <input type="email" id="emailInput" value="amakop20@gmail.com">
-    </div>
-    <div class="form-group">
-      <label for="phoneInput">Phone Number</label>
-      <input type="tel" id="phoneInput" value="+234 701 389 2949">
-    </div>
-  </div>
+  <div class="toast" id="toast"></div>
 
-  <button type="button" class="save-btn" id="saveBtn">
-    <i class="fa-solid fa-floppy-disk"></i> Save Profile
-  </button>
+  <script src="js/theme.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const changePhotoBtn = document.getElementById('changePhotoBtn');
+      const imageUpload = document.getElementById('imageUpload');
+      const profileAvatar = document.getElementById('profileAvatar');
+      const saveBtn = document.getElementById('saveBtn');
+      const aboutTextarea = document.getElementById('aboutTextarea');
+      const emailInput = document.getElementById('emailInput');
+      const phoneInput = document.getElementById('phoneInput');
+      const toast = document.getElementById('toast');
 
-</div>
+      function showToast(msg) {
+        if (!toast) return;
+        toast.textContent = msg;
+        toast.className = 'toast show';
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      }
 
-<div class="toast" id="toast"></div>
+      // 1. Photo upload trigger
+      if (changePhotoBtn && imageUpload) {
+        changePhotoBtn.addEventListener('click', () => imageUpload.click());
 
-<script src="script.js"></script>
+        imageUpload.addEventListener('change', (e) => {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (event) {
+              const base64Img = event.target.result;
+              if (profileAvatar) profileAvatar.src = base64Img;
+
+              // Save to localStorage profile
+              const raw = localStorage.getItem('sf_userProfile') || '{}';
+              const profile = JSON.parse(raw);
+              profile.avatar = base64Img;
+              localStorage.setItem('sf_userProfile', JSON.stringify(profile));
+              localStorage.setItem('sf_currentUser', JSON.stringify(profile));
+
+              if (typeof window.syncGlobalUserProfile === 'function') {
+                window.syncGlobalUserProfile();
+              }
+              showToast('✅ Profile photo updated!');
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+      }
+
+      // 2. Save profile changes
+      if (saveBtn) {
+        saveBtn.addEventListener('click', () => {
+          const raw = localStorage.getItem('sf_userProfile') || '{}';
+          const profile = JSON.parse(raw);
+
+          profile.bio = aboutTextarea ? aboutTextarea.value.trim() : profile.bio;
+          profile.email = emailInput ? emailInput.value.trim() : profile.email;
+          profile.phone = phoneInput ? phoneInput.value.trim() : profile.phone;
+
+          localStorage.setItem('sf_userProfile', JSON.stringify(profile));
+          localStorage.setItem('sf_currentUser', JSON.stringify(profile));
+
+          if (typeof window.syncGlobalUserProfile === 'function') {
+            window.syncGlobalUserProfile();
+          }
+
+          showToast('✅ Profile saved successfully!');
+        });
+      }
+    });
+  </script>
 </body>
 </html>

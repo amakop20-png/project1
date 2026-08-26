@@ -1,138 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
-
-<body>
   
-<header>
-    <div class="logo2">
-        <img src="chart.png" alt="Logo">
+  <meta charset="UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Flow - Modern Learning Platform</title>
+  <meta name="google-site-verification" content="tTZ7OoOKGF3PnKdHhJNmftQXPJx1vqrfENqBR6T2Oec" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/theme.js"></script>
+</head>
+<body class="landing-page">
+
+  <section class="home-hero">
+    <div class="hero-image-layer" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="site-brand" href="index.html" aria-label="Study Flow home">
+        <span class="site-brand-mark"><i class="fa-solid fa-graduation-cap"></i></span>
+        <span class="site-brand-text">
+          <strong>Study Flow</strong>
+          <small>Learn with rhythm</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="siteNav">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav id="siteNav" class="site-nav">
+        <a href="#why-study-flow">Why Study Flow</a>
+        <a href="#features">Features</a>
+        <a href="#for-whom">For Students</a>
+        <a href="#testimonials">Stories</a>
+      </nav>
+
+      <div class="site-actions">
+        <a href="login.html" class="site-link">Log in</a>
+    
+      </div>
+    </header>
+
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <i class="fa-solid fa-star"></i>
+        <span>Built for Nigerian students</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+
+      <h1>Bye, old school.<br>Hi, <span class="accent">Study Flow.</span></h1>
+      <p class="hero-sub">Take your learning anywhere - personalized, playful, and purposeful.</p>
+
+      <div class="hero-actions">
+        <a href="signup.html" class="btn-primary hero-cta">Start learning</a>
+        <a href="#why-study-flow" class="btn-hero-secondary"><i class="fa-solid fa-play"></i> Why Study Flow?</a>
+      </div>
     </div>
 
-    <nav class="nav">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
-    </nav>
-    <div class="toogle-menu">
-        <span></span>
-        <span></span>
-         <span></span>
+    <div class="hero-feature-list">
+      <div class="karaoke-viewport">
+        <ul id="heroFeatureList" class="karaoke-list">
+          <li><i class="fa-solid fa-play hero-feature-arrow"></i><span>Plan your study sessions</span></li>
+          <li><span>Track your progress</span></li>
+          <li><span>Build daily streaks</span></li>
+          <li><span>Set subject goals</span></li>
+          <li><span>Smart reminders</span></li>
+          <li><span>Study with your section</span></li>
+        </ul>
+      </div>
     </div>
-</header>
+  </section>
 
-<section class="hero">
+  <section class="trust-strip" id="features">
+    <div class="trust-pill"><strong>10k+</strong><span>study sessions planned</span></div>
+    <div class="trust-pill"><strong>92%</strong><span>weekly consistency</span></div>
+    <div class="trust-pill"><strong>24/7</strong><span>mobile-friendly access</span></div>
+  </section>
 
-    <div class="hero-content">
-        <h1>
-            Master  Your
-            <span class="highlight"> Learning Journey</span>
-        </h1>
-
-        <p>
-         
-         Stay organized, focused, and motivated with studyflow designed to help students, professionals, and lifelong learners reach their goals. Create personalized study plans, track your progress, and build consistent learning habits that deliver real results.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="signup.html" class="btn-primary">
-                Get Started  Free
-            </a>
-
-            <a href="#" class="btn-secondary">
-                View Demo
-            </a>
-        </div>
+  <section class="present" id="why-study-flow">
+    <div class="present-content">
+      <span class="section-label">WHY STUDY FLOW?</span>
+      <h2>Presenting Study Flow</h2>
+      <p>
+        Study Flow is a web-based platform designed to help students plan, track,
+        and optimize their study sessions. With personalized study plans,
+        progress tracking, and smart reminders, Study Flow makes learning more
+        organized, effective, and enjoyable.
+      </p>
     </div>
 
-    <div class="hero-image">
-        <img src="JACK2.jpeg" alt="Hero Image">
-    </div>
-
-</section>
-<section class="container">
-    <h2>Why Choose Our Platform?</h2>
     <div class="cards">
-<div class="feature">
-    <div class="logo">
+      <div class="benefit">
         <i class="fa-solid fa-calendar-check"></i>
-    </div>
-    <h3>Personalized Study Plans</h3>
-    <p>Create customized study schedules that fit your learning style and goals.</p>
-</div>
+        <div>
+          <h3>Plan Smarter</h3>
+          <p>Organize your study sessions and stay on schedule.</p>
+        </div>
+      </div>
 
-<div class="feature">
-    <div class="logo">
+      <div class="benefit">
         <i class="fa-solid fa-chart-line"></i>
-    </div>
-    <h3>Progress Tracking</h3>
-    <p>Monitor your learning progress and stay motivated with visual insights.</p>
+        <div>
+          <h3>Track Progress</h3>
+          <p>See your improvement and understand your learning habits.</p>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <i class="fa-solid fa-bell"></i>
+        <div>
+          <h3>Stay Consistent</h3>
+          <p>Get reminders that keep you focused on your goals.</p>
+        </div>
+      </div>
+
+     <div class="benefit">
+  <i class="fa-solid fa-book-open-reader"></i>
+  <div>
+    <h3>Learn Better</h3>
+    <p>Build effective study habits that help you understand and remember more.</p>
+  </div>
 </div>
 
-<div class="feature">
-    <div class="logo">
-        <i class="fa-solid fa-book-open-reader"></i>
-    </div>
-    <h3>Consistent Learning Habits</h3>
-    <p>Build effective learning routines that lead to long-term success.</p>
-</div>
-<div class="feature">
-    <div class="logo">
-    <i class="fa-solid fa-bullseye feature-icon"></i>
-    </div>
-    <h3>Goal Setting</h3>
-    <p>Set clear learning objectives and milestones to stay focused and measure your success.</p>
+<div class="benefit">
+  <i class="fa-solid fa-bullseye"></i>
+  <div>
+    <h3>Reach Your Goals</h3>
+    <p>Set clear academic goals and take steady steps toward achieving them.</p>
+  </div>
 </div>
 
-<div class="feature">
-    <div class="logo">
-    <i class="fa-solid fa-users feature-icon"></i>
-    </div>
-    <h3>Collaborative Learning</h3>
-    <p>Connect with peers, share study plans, and stay motivated through community support.</p>
+<div class="benefit">
+  <i class="fa-solid fa-clock"></i>
+  <div>
+    <h3>Manage Your Time</h3>
+    <p>Make the most of your time by balancing study sessions and daily activities.</p>
+  </div>
 </div>
-
-<div class="feature">
-    <div class="logo">
-    <i class="fa-solid fa-bell feature-icon"></i>
     </div>
-    <h3>Smart Reminders</h3>
-    <p>Receive timely notifications and reminders to keep your learning schedule on track.</p>
-</div>
+  </section>
 
-<div class="feature">
-    <div class="logo">
-    <i class="fa-solid fa-bullseye feature-icon"></i>
+  <section class="audience-section" id="for-whom">
+    <div class="audience-copy">
+      <span class="section-label">BUILT FOR REAL STUDENTS</span>
+      <h2>Made for learners who need structure, momentum, and calm.</h2>
+      <p>
+        Study Flow helps students turn vague intentions into a real rhythm:
+        planned sessions, visible progress, smart reminders, and a clearer
+        sense of what to do next.
+      </p>
     </div>
-    <h3>Goal Setting</h3>
-    <p>Set clear learning objectives and milestones to stay focused and measure your success.</p>
-</div>
+    <div class="audience-card">
+      <div class="audience-item"><i class="fa-solid fa-check"></i><span>Plan subjects in minutes</span></div>
+      <div class="audience-item"><i class="fa-solid fa-check"></i><span>Track weekly momentum</span></div>
+      <div class="audience-item"><i class="fa-solid fa-check"></i><span>Stay accountable with sections</span></div>
+    </div>
+  </section>
 
-<div class="feature">
-    <div class="logo">
-    <i class="fa-solid fa-users feature-icon"></i>
-    </div>
-    <h3>Collaborative Learning</h3>
-    <p>Connect with peers, share study plans, and stay motivated through community support.</p>
-</div>
 
-<div class="feature">
-    <div class="logo">
-    <i class="fa-solid fa-bell feature-icon"></i>
-    </div>
-    <h3>Smart Reminders</h3>
-    <p>Receive timely notifications and reminders to keep your learning schedule on track.</p>
-</div>
-
-    </div>
-</section>
-<script src="script.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>

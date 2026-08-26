@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses — Study Flow</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/shared-nav.css">
+  <link rel="stylesheet" href="css/setting.css">
+  <script src="js/theme.js"></script>
+</head>
+<body class="dashboard-page courses-page">
+
+  <main class="main">
+
+    <!-- ══════════════════ TOP UTILITY BAR ══════════════════ -->
+    <div class="header-actions">
+      <div class="notification-container">
+        <button class="icon-btn" id="bellBtn" aria-label="View notifications">
+          <i class="fa-solid fa-bell"></i>
+          <span class="notification-count" id="notificationCount">3</span>
+        </button>
+
+        <div class="notification-dropdown" id="notificationDropdown">
+          <div class="dropdown-header">
+            <h4>Notifications</h4>
+            <button id="markAllRead">Mark all read</button>
+          </div>
+          <audio id="notificationSound">
+            <source src="sounds/notification.mp3" type="audio/mpeg">
+          </audio>
+          <div class="notification-item unread">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <div>
+              <span><strong>Assignment Due:</strong> Matrix Algebra due today at 11:59 PM</span>
+              <small>15m ago</small>
+            </div>
+          </div>
+          <div class="notification-item unread">
+            <i class="fa-solid fa-comments"></i>
+            <div>
+              <span><strong>Discussion Reply:</strong> Dr. Chen replied to your question</span>
+              <small>1h ago</small>
+            </div>
+          </div>
+          <div class="notification-item unread">
+            <i class="fa-solid fa-award"></i>
+            <div>
+              <span><strong>Milestone:</strong> 5-day study streak unlocked! 🎉</span>
+              <small>3h ago</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="user-container">
+        <button class="user-avatar-btn" id="userBtn" aria-label="User menu">
+          <img
+            src="https://ui-avatars.com/api/?name=Precious+Emmanuel&background=4f46e5&color=fff&size=180"
+            alt="Profile"
+            class="avatar user-avatar">
+          <span class="user-name-inline">Precious E.</span>
+          <i class="fa-solid fa-chevron-down user-caret"></i>
+        </button>
+
+        <div class="user-dropdown" id="userDropdown">
+          <div class="profile-header">
+            <img
+              src="https://ui-avatars.com/api/?name=Precious+Emmanuel&background=4f46e5&color=fff&size=180"
+              alt="Profile Picture"
+              class="avatar"
+              id="dashAvatar"
+              onerror="this.src='https://ui-avatars.com/api/?name=Precious+Emmanuel&background=4f46e5&color=fff&size=180'">
+
+            <div>
+              <h4 id="dashName">Precious Emmanuel</h4>
+              <p id="dashEmail">amakop20@email.com</p>
+            </div>
+          </div>
+
+          <div class="dropdown-bio">
+            <p id="dashBio">
+              Learning Computer Science & Further Math. <a href="profile.html">Edit →</a>
+            </p>
+          </div>
+
+          <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+          <a href="setting.html"><i class="fa-solid fa-gear"></i> Settings</a>
+          <a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+          <a href="signup.html" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════ SIDEBAR (Categorized SaaS Hierarchy) ══════════════════ -->
+    <aside class="sidebar" id="appSidebar">
+      <div class="top">
+        <div class="sidebar-logo">
+          <div class="brand-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="brand-text">
+            <h2>Study<strong>Flow</strong></h2>
+            <span class="brand-sub">LEARNING SUITE</span>
+          </div>
+        </div>
+        <button class="close" id="close-btn" aria-label="Close sidebar">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Main Navigation">
+        <!-- LEARN -->
+        <span class="nav-section-label">Learn</span>
+        <a href="dashboard.html" class="nav-item">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="courses.html" class="nav-item active">
+          <i class="fa-solid fa-book-open"></i>
+          <span>My Courses</span>
+        </a>
+        <a href="courses.html?tab=explore" class="nav-item">
+          <i class="fa-solid fa-compass"></i>
+          <span>Explore</span>
+        </a>
+
+        <!-- PLAN -->
+        <span class="nav-section-label">Plan</span>
+        <a href="schedule.html" class="nav-item">
+          <i class="fa-solid fa-calendar-days"></i>
+          <span>Schedule</span>
+        </a>
+        <a href="assignment.html" class="nav-item">
+          <i class="fa-solid fa-list-check"></i>
+          <span>Assignments</span>
+          <span class="nav-badge alert">3</span>
+        </a>
+
+        <!-- TRACK & CONNECT -->
+        <span class="nav-section-label">Track & Connect</span>
+        <a href="learning.html" class="nav-item">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span>Progress</span>
+        </a>
+        <a href="dashboard.html#discussions" class="nav-item">
+          <i class="fa-solid fa-comments"></i>
+          <span>Discussions</span>
+        </a>
+        <a href="learning.html#certificates" class="nav-item">
+          <i class="fa-solid fa-award"></i>
+          <span>Certificates</span>
+        </a>
+
+        <!-- ACCOUNT (Bottom Pinned) -->
+        <div class="sidebar-bottom-group">
+          <span class="nav-section-label">Account</span>
+          <a href="profile.html" class="nav-item">
+            <i class="fa-solid fa-user"></i>
+            <span>Profile</span>
+          </a>
+          <a href="setting.html" class="nav-item">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+          </a>
+          <a href="signup.html" class="nav-item logout-link">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Sign Out</span>
+          </a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- ══════════════════ MAIN CONTENT ══════════════════ -->
+    <div class="dashboard-content">
+
+      <!-- MOBILE TOGGLE BAR -->
+      <div class="header-toggle mobile-flex-header" aria-label="Open navigation">
+        <div class="mobile-logo-container">
+          <div class="brand-icon sm">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <span class="mobile-brand">Study<strong>Flow</strong></span>
+        </div>
+        <button id="sidebarOpenBtn" class="toogle-menu" type="button" aria-label="Open sidebar">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+      <!-- HEADER BANNER -->
+      <header class="dashboard-hero-card">
+        <div class="hero-text-content">
+          <div class="hero-eyebrow">
+            <span class="status-indicator-dot"></span>
+            <span>CURRICULUM & SUBJECTS</span>
+          </div>
+          <h1>Your Learning Path</h1>
+          <p class="hero-lead">Explore your enrolled subjects. Progress synchronizes automatically with your study schedule.</p>
+        </div>
+      </header>
+
+      <!-- FILTER TABS (Clean Indigo UI) -->
+      <div class="courses-filter">
+        <button class="filter-btn active" data-filter="all">All Courses</button>
+        <button class="filter-btn" data-filter="in-progress">In Progress</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+        <button class="filter-btn" data-filter="not-started">Not Started</button>
+      </div>
+
+      <!-- COURSES GRID (Dynamically updated by js/script.js) -->
+      <section class="all-courses-section">
+        <div class="courses-grid">
+
+          <!-- Subject 1: Mathematics -->
+          <div class="course-card sf-card" data-status="in-progress">
+            <div class="course-header">
+              <span class="course-badge in-progress">In Progress</span>
+              <span class="course-duration"><i class="fa-regular fa-clock"></i> 14 hrs</span>
+            </div>
+            <div class="course-content">
+              <span class="course-category">EXACT SCIENCES</span>
+              <h3 class="course-title">Mathematics</h3>
+              <p class="course-description">Master numbers, patterns, algebraic structures, and calculus problem-solving.</p>
+              
+              <div class="course-levels-list">
+                <div class="level-group">
+                  <span class="level-tag">Beginner Level</span>
+                  <div class="lesson-links-group">
+                    <a href="study.html?subject=Mathematics&topic=Geometric+and+Vectors&level=Beginner" class="lesson-link-btn">
+                      <i class="fa-solid fa-play-circle text-primary"></i> Geometric and Vectors
+                    </a>
+                    <a href="study.html?subject=Mathematics&topic=Fractions&level=Beginner" class="lesson-link-btn">
+                      <i class="fa-solid fa-play-circle text-primary"></i> Fractions & Decimals
+                    </a>
+                  </div>
+                </div>
+
+                <div class="level-group">
+                  <span class="level-tag">Intermediate Level</span>
+                  <div class="lesson-links-group">
+                    <a href="study.html?subject=Mathematics&topic=Algebra&level=Intermediate" class="lesson-link-btn">
+                      <i class="fa-solid fa-play-circle text-primary"></i> Algebraic Expressions
+                    </a>
+                    <a href="study.html?subject=Mathematics&topic=Geometry&level=Intermediate" class="lesson-link-btn">
+                      <i class="fa-solid fa-play-circle text-primary"></i> Coordinate Geometry
+                    </a>
+                  </div>
+                </div>
+
+                <div class="level-group">
+                  <span class="level-tag">Advanced Level</span>
+                  <div class="lesson-links-group">
+                    <a href="study.html?subject=Mathematics&topic=Calculus&level=Advanced" class="lesson-link-btn">
+                      <i class="fa-solid fa-play-circle text-primary"></i> Differential Calculus
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="course-footer">
+              <div class="progress-info">
+                <span class="progress-label">Subject Completion</span>
+                <span class="progress-percent">40%</span>
+              </div>
+              <div class="sf-progress-track sm">
+                <div class="progress-fill" style="width: 40%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subject 2: Further Mathematics -->
+          <div class="course-card sf-card" data-status="in-progress">
+            <div class="course-header">
+              <span class="course-badge in-progress">In Progress</span>
+              <span class="course-duration"><i class="fa-regular fa-clock"></i> 18 hrs</span>
+            </div>
+            <div class="course-content">
+              <span class="course-category">ADVANCED SCIENCES</span>
+              <h3 class="course-title">Further Mathematics</h3>
+              <p class="course-description">Dive deep into matrices, vectors, complex numbers, and advanced statistics.</p>
+              
+              <div class="course-levels-list">
+                <div class="level-group">
+                  <span class="level-tag">Advanced Level</span>
+                  <div class="lesson-links-group">
+                    <a href="study.html?subject=Further+Mathematics&topic=Linear+Equations&level=Advanced" class="lesson-link-btn">
+                      <i class="fa-solid fa-play-circle text-primary"></i> Linear Equations & Matrices
+                    </a>
+                    <a href="study.html?subject=Further+Mathematics&topic=Complex+Numbers&level=Advanced" class="lesson-link-btn">
+                      <i class="fa-solid fa-play-circle text-primary"></i> Complex Analysis
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="course-footer">
+              <div class="progress-info">
+                <span class="progress-label">Subject Completion</span>
+                <span class="progress-percent">50%</span>
+              </div>
+              <div class="sf-progress-track sm">
+                <div class="progress-fill" style="width: 50%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subject 3: Agricultural Science -->
+          <div class="course-card sf-card" data-status="completed">
+            <div class="course-header">
+              <span class="course-badge completed">Completed</span>
+              <span class="course-duration"><i class="fa-solid fa-award"></i> Certificate</span>
+            </div>
+            <div class="course-content">
+              <span class="course-category">APPLIED SCIENCES</span>
+              <h3 class="course-title">Agricultural Science</h3>
+              <p class="course-description">Learn modern agronomy, soil chemistry, livestock management, and farm economics.</p>
+              
+              <div class="course-levels-list">
+                <div class="level-group">
+                  <span class="level-tag">Beginner Level</span>
+                  <div class="lesson-links-group">
+                    <a href="study.html?subject=Agricultural+Science&topic=Soil+Chemistry&level=Beginner" class="lesson-link-btn">
+                      <i class="fa-solid fa-circle-check text-success"></i> Soil Chemistry & Nutrition
+                    </a>
+                    <a href="study.html?subject=Agricultural+Science&topic=Crop+Production&level=Beginner" class="lesson-link-btn">
+                      <i class="fa-solid fa-circle-check text-success"></i> Crop Production Basics
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="course-footer">
+              <div class="progress-info">
+                <span class="progress-label">Subject Completion</span>
+                <span class="progress-percent">100%</span>
+              </div>
+              <div class="sf-progress-track sm">
+                <div class="progress-fill success" style="width: 100%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subject 4: Physics -->
+          <div class="course-card sf-card" data-status="not-started">
+            <div class="course-header">
+              <span class="course-badge not-started">Not Started</span>
+              <span class="course-duration"><i class="fa-regular fa-clock"></i> 16 hrs</span>
+            </div>
+            <div class="course-content">
+              <span class="course-category">NATURAL SCIENCES</span>
+              <h3 class="course-title">Physics</h3>
+              <p class="course-description">Understand the fundamental laws governing matter, energy, mechanics, and waves.</p>
+              
+              <div class="course-levels-list">
+                <div class="level-group">
+                  <span class="level-tag">Beginner Level</span>
+                  <div class="lesson-links-group">
+                    <a href="study.html?subject=Physics&topic=Introduction+to+Physics&level=Beginner" class="lesson-link-btn">
+                      <i class="fa-solid fa-play-circle text-primary"></i> Introduction to Measurement
+                    </a>
+                  </div>
+                </div>
+                <div class="level-group">
+                  <span class="level-tag">Intermediate Level</span>
+                  <div class="lesson-links-group">
+                    <a href="study.html?subject=Physics&topic=Kinematics&level=Intermediate" class="lesson-link-btn">
+                      <i class="fa-solid fa-play-circle text-primary"></i> Kinematics & Motion
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="course-footer">
+              <div class="progress-info">
+                <span class="progress-label">Subject Completion</span>
+                <span class="progress-percent">0%</span>
+              </div>
+              <div class="sf-progress-track sm">
+                <div class="progress-fill" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subject 5: Chemistry -->
+          <div class="course-card sf-card" data-status="not-started">
+            <div class="course-header">
+              <span class="course-badge not-started">Not Started</span>
+              <span class="course-duration"><i class="fa-regular fa-clock"></i> 12 hrs</span>
+            </div>
+            <div class="course-content">
+              <span class="course-category">CHEMICAL SCIENCES</span>
+              <h3 class="course-title">Chemistry</h3>
+              <p class="course-description">Explore atomic structures, periodic trends, bonding, and stoichiometry.</p>
+              
+              <div class="course-levels-list">
+                <div class="level-group">
+                  <span class="level-tag">Beginner Level</span>
+                  <div class="lesson-links-group">
+                    <a href="study.html?subject=Chemistry&topic=Atomic+Structure&level=Beginner" class="lesson-link-btn">
+                      <i class="fa-solid fa-play-circle text-primary"></i> Atomic Structure & Bonding
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="course-footer">
+              <div class="progress-info">
+                <span class="progress-label">Subject Completion</span>
+                <span class="progress-percent">0%</span>
+              </div>
+              <div class="sf-progress-track sm">
+                <div class="progress-fill" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subject 6: English Language -->
+          <div class="course-card sf-card" data-status="completed">
+            <div class="course-header">
+              <span class="course-badge completed">Completed</span>
+              <span class="course-duration"><i class="fa-solid fa-award"></i> Certificate</span>
+            </div>
+            <div class="course-content">
+              <span class="course-category">HUMANITIES</span>
+              <h3 class="course-title">English Language</h3>
+              <p class="course-description">Master syntax, academic essay composition, and reading comprehension.</p>
+              
+              <div class="course-levels-list">
+                <div class="level-group">
+                  <span class="level-tag">Beginner Level</span>
+                  <div class="lesson-links-group">
+                    <a href="study.html?subject=English+Language&topic=Basic+Grammar&level=Beginner" class="lesson-link-btn">
+                      <i class="fa-solid fa-circle-check text-success"></i> Grammar & Mechanics
+                    </a>
+                  </div>
+                </div>
+                <div class="level-group">
+                  <span class="level-tag">Intermediate Level</span>
+                  <div class="lesson-links-group">
+                    <a href="study.html?subject=English+Language&topic=Essay+Writing&level=Intermediate" class="lesson-link-btn">
+                      <i class="fa-solid fa-circle-check text-success"></i> Expository Essay Writing
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="course-footer">
+              <div class="progress-info">
+                <span class="progress-label">Subject Completion</span>
+                <span class="progress-percent">100%</span>
+              </div>
+              <div class="sf-progress-track sm">
+                <div class="progress-fill success" style="width: 100%;"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/theme.js"></script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

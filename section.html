@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/shared-nav.css">
+</head>
+
+<body>
+    <div class="section-page-topbar">
+
+
+        <div class="study-plan-form-container">
+            <form id="studyPlanForm" class="study-plan-form">
+                <h2>Today's Study Plan</h2>
+                <p class="form-subtitle">Select the subjects you want to focus on today</p>
+
+               
+
+                <div class="subject-group" data-stream-group="science">
+                    <label class="subject-checkbox">
+                        <input type="checkbox" name="subject" value="English Language" >
+                        <span>English Language <small>(Compulsory)</small></span>
+                    </label>
+
+                    <label class="subject-checkbox">
+                        <input type="checkbox" name="subject" value="Mathematics" >
+                        <span>Mathematics</span>
+                    </label>
+
+                    <label class="subject-checkbox">
+                        <input type="checkbox" name="subject" value="Physics">
+                        <span>Physics</span>
+                    </label>
+
+                    <label class="subject-checkbox">
+                        <input type="checkbox" name="subject" value="Chemistry">
+                        <span>Chemistry</span>
+                    </label>
+
+                    <label class="subject-checkbox">
+                        <input type="checkbox" name="subject" value="Biology">
+                        <span>Biology</span>
+                    </label>
+
+                    <label class="subject-checkbox">
+                        <input type="checkbox" name="subject" value="Further Mathematics">
+                        <span>Further Mathematics</span>
+                    </label>
+
+                    <label class="subject-checkbox">
+                        <input type="checkbox" name="subject" value="Agricultural Science">
+                        <span>Agricultural Science</span>
+                    </label>
+                </div>
+
+                <div class="subject-group" data-stream-group="art" style="display: none;">
+                    <label class="subject-checkbox">
+                        <input type="checkbox" name="subject" value="English Language" checked disabled>
+                        <span>English Language <small>(Compulsory)</small></span>
+                    </label>
+
+                    <label class="subject-checkbox">
+                        <input type="checkbox" name="subject" value="Government">
+                        <span>Government</span>
+                    </label>
+
+                    <label class="subject-checkbox">
+                        <input type="checkbox" name="subject" value="Economics">
+                        <span>Economics</span>
+                    </label>
+
+                    <label class="subject-checkbox">
+                        <input type="checkbox" name="subject" value="Literature in English">
+                        <span>Literature in English</span>
+                    </label>
+
+                    <label class="subject-checkbox">
+                        <input type="checkbox" name="subject" value="Geography">
+                        <span>Geography</span>
+                    </label>
+
+                    <label class="subject-checkbox">
+                        <input type="checkbox" name="subject" value="Accounting">
+                        <span>Accounting</span>
+                    </label>
+
+                    <label class="subject-checkbox">
+                        <input type="checkbox" name="subject" value="Commerce">
+                        <span>Commerce</span>
+                    </label>
+
+                    <label class="subject-checkbox">
+                        <input type="checkbox" name="subject" value="CRS/IRS">
+                        <span>CRS/IRS</span>
+                    </label>
+                </div>
+
+                <div class="form-row" style="margin-bottom: 1rem;">
+                    <label for="studyTopic">Specific Topic (Optional)</label>
+                    <input type="text" id="studyTopic" name="topic" placeholder="e.g. Algebra, Kinematics"
+                        style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px; margin-top: 0.25rem;">
+                </div>
+
+                <div class="form-row" style="margin-bottom: 1rem;">
+                    <label for="studyLevel">Topic Level</label>
+                    <select id="studyLevel" name="level"
+                        style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px; margin-top: 0.25rem;">
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="studyDuration">Study duration per subject (minutes)</label>
+                    <input type="number" id="studyDuration" name="duration" min="15" step="15" value="60" required>
+                </div>
+
+                <button type="submit" class="btn-primary">Add to Today's Plan</button>
+                <button type="button" class="btn-secondary" id="sfResetPlanBtn">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    Reset Study Plan
+                </button>
+
+                <p id="formMessage" class="form-message"></p>
+            </form>
+        </div>
+        <script src="js/sidebar.js"></script>
+
+        <script src="js/script.js"></script>
+        <script src="js/theme.js"></script>
+</body>
+
+</html>
