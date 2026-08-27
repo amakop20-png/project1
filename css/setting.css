@@ -821,6 +821,19 @@ body.dark-theme .setting-icon.blue  { background: #0d1f3c; color: #60a5fa; }
 
 /* ---------- ≤480px: small phones ---------- */
 @media (max-width: 480px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  img,
+  video,
+  svg,
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
   aside.sidebar { width: 82vw; max-width: 260px; padding: 20px 0; }
   aside.sidebar .top { padding: 0 18px 20px; }
   aside.sidebar .sidebar-logo { font-size: 1rem; }
@@ -900,5 +913,11 @@ body.dark-theme .setting-icon.blue  { background: #0d1f3c; color: #60a5fa; }
     right: 16px;
     left: 16px;
     top: 16px;
+  }
+
+  .page-header,
+  .settings-card,
+  .save-bar {
+    max-width: 100%;
   }
 }

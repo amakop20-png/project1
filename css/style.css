@@ -32,9 +32,6 @@
 /* ══════════════════════════════════════════
    CSS VARIABLES — light + dark
 ══════════════════════════════════════════ */
-/* =========================================================
-   STUDY FLOW — PURPLE + YELLOW BRAND SYSTEM
-   ========================================================= */
 :root {
     --sf-purple: #16A34A;
     --sf-purple-dark: #15803D;
@@ -256,8 +253,8 @@ body.dark-theme .schedule-overview-card li {
 .hero-badge i:last-child { color: #8b5cf6; font-size: 0.8rem; margin-left: 2px; }
 
 .home-hero h1 {
-    font-size: clamp(3rem, 6vw, 5.2rem);
-    line-height: 0.96;
+    font-size: clamp(2rem, 6vw, 5.2rem);
+    line-height: 0.98;
     font-weight: 900;
     margin: 0 0 20px;
     color: #fff;
@@ -267,7 +264,7 @@ body.dark-theme .schedule-overview-card li {
 .home-hero h1 .accent { color: #7c3aed; }
 
 .hero-sub {
-    font-size: 18px;
+    font-size: clamp(0.95rem, 2vw, 18px);
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.86);
     max-width: 460px;
@@ -355,7 +352,7 @@ body.dark-theme .schedule-overview-card li {
 }
 .hero-feature-arrow { color: #7c3aed; font-size: 16px; }
 
-.container h2 { font-size:1.6rem; text-align:center; margin: 28px 0 12px }
+.container h2 { font-size: clamp(1.3rem, 2vw, 1.6rem); text-align:center; margin: 28px 0 12px }
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 16px }
 .feature { background: var(--surface); border: 1px solid var(--border); padding: 18px; border-radius: 14px; box-shadow: 0 8px 24px rgba(15,23,42,0.06); display:flex; flex-direction:column; gap:12px; align-items:flex-start; min-height: 140px; transition: transform .18s ease, box-shadow .18s ease }
 .feature .logo { width:48px; height:48px; display:grid; place-items:center; border-radius:12px; background:var(--primary-soft); color:var(--primary); font-size:20px }
@@ -420,7 +417,7 @@ body.dark-theme .schedule-overview-card li {
 
 .present .cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 25px;
 }
 
@@ -428,19 +425,14 @@ body.dark-theme .schedule-overview-card li {
 /* Individual card */
 .benefit {
     padding: 32px 28px;
-
     background: #fff;
-
-
     border-radius: 20px;
-       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-    transition: transform 0.3s ease,
- border-color 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .benefit:hover {
     transform: translateY(-6px);
-   
 }
 
 
@@ -448,18 +440,13 @@ body.dark-theme .schedule-overview-card li {
 .benefit i {
     width: 55px;
     height: 55px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     margin-bottom: 22px;
-
     border-radius: 15px;
-
     color: #fff;
     font-size: 1.2rem;
-
     background: linear-gradient(
         135deg,
         #7c3aed,
@@ -482,7 +469,6 @@ body.dark-theme .schedule-overview-card li {
 /* Card text */
 .benefit p {
     margin: 0;
-
     color: #64748b;
     font-size: 0.92rem;
     line-height: 1.7;
@@ -527,6 +513,7 @@ body.dark-theme .schedule-overview-card li {
 .site-brand-text strong { font-size: 1.05rem; font-weight: 800; color: #fff; }
 .site-brand-text small { font-size: 0.75rem; font-weight: 500; color: rgba(255, 255, 255, 0.65); }
 
+/* Hamburger — hidden on desktop, shown by media queries below */
 .menu-toggle {
     display: none;
     background: transparent;
@@ -541,7 +528,7 @@ body.dark-theme .schedule-overview-card li {
 }
 .menu-toggle:hover { background: rgba(255, 255, 255, 0.1); }
 
-.site-nav { display: flex; align-items: center; gap: 28px; }
+.site-nav { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
 .site-nav a {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.85);
@@ -551,7 +538,7 @@ body.dark-theme .schedule-overview-card li {
 }
 .site-nav a:hover { color: #fff; }
 
-.site-actions { display: flex; align-items: center; gap: 20px; }
+.site-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 .site-link {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.85);
@@ -565,11 +552,8 @@ body.dark-theme .schedule-overview-card li {
 .site-nav.active {
     display: flex;
 }
-/* =========================================
-   TABLET
-========================================= */
-/* ══════════════════════════════════════════
 
+/* ══════════════════════════════════════════
    DASHBOARD HEADER (notifications / user dropdown)
 ══════════════════════════════════════════ */
 header {
@@ -577,6 +561,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
     padding: 20px 40px;
     background: rgba(255, 255, 255, .72);
     border-bottom: 1px solid rgba(99, 102, 241, .12);
@@ -584,7 +570,7 @@ header {
     margin-bottom: 40px;
 }
 
-.user-section { display: flex; align-items: center; gap: 20px; }
+.user-section { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 
 .icon-btn {
     width: 52px;
@@ -631,7 +617,7 @@ header {
     position: absolute;
     top: 60px;
     right: 0;
-    width: 320px;
+    width: min(320px, 92vw);
     background: white;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
@@ -731,7 +717,7 @@ header {
 header .logo { display: flex; align-items: center; gap: 12px; font-size: 1.4rem; font-weight: 800; color: #111827; }
 header .logo img { width: 48px; height: 40px; }
 
-.header-actions { position: relative; display: flex; justify-content: flex-end; align-items: center; gap: 16px; }
+.header-actions { position: relative; display: flex; justify-content: flex-end; align-items: center; gap: 16px; flex-wrap: wrap; }
 .header-actions i { font-size: 1.2rem; color: #6b7280; cursor: pointer; transition: color .2s; }
 .header-actions i:hover { color: #7c3aed; }
 
@@ -739,7 +725,7 @@ header .logo img { width: 48px; height: 40px; }
    MAIN LAYOUT
 ══════════════════════════════════════════ */
 .main {
-    position: absolute;
+    position: relative;
     padding: 32px;
     border-radius: 28px;
     background: #ffffff;
@@ -763,6 +749,7 @@ body.dashboard-page main.main {
     border-radius: 0;
     min-height: auto;
     padding: 32px 32px 48px;
+    transition: margin-left .3s ease;
 }
 
 .dashboard-content { max-width: 1180px; margin: 0 auto; padding: 0 0 16px; }
@@ -770,6 +757,7 @@ body.dashboard-page main.main {
 
 .page-header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
     gap: 32px;
@@ -787,13 +775,10 @@ body.dashboard-page main.main {
 .dashboard-page:not(.schedule-page) .header-actions { display: none; }
 
 .eyebrow { text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem; color: var(--primary); margin-bottom: 12px; }
-.page-title h1 { font-size: 2.8rem; line-height: 1.05; color: #111827; margin-bottom: 16px; }
-.lead { font-size: 1rem; color: #4b5563; max-width: 720px; line-height: 1.75; }
+.page-title h1 { font-size: clamp(1.7rem, 4vw, 2.8rem); line-height: 1.05; color: #111827; margin-bottom: 16px; }
+.lead { font-size: clamp(0.9rem, 1.5vw, 1rem); color: #4b5563; max-width: 720px; line-height: 1.75; }
 
-/* ---------- Mobile-only header row (logo + hamburger) ----------
-   Hidden by default on desktop. This rule MUST stay in the base
-   section (not after the media queries) or it silently overrides
-   the "display:flex" rule that shows it on mobile. */
+/* Mobile-only header row (logo + hamburger) — hidden on desktop/tablet, shown by mobile query */
 .mobile-flex-header { display: none; }
 
 .mobile-logo-container { display: flex; align-items: center; gap: 12px; }
@@ -824,7 +809,8 @@ body.dashboard-page main.main {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 14px;
-    min-width: 360px;
+    min-width: 0;
+    width: 100%;
 }
 
 .summary-chip {
@@ -841,13 +827,14 @@ body.dashboard-page main.main {
 .summary-label { font-size: 0.82rem; color: #64748b; line-height: 1.35; }
 
 .dashboard-cards {
-    margin: 30px;
+    margin: 30px 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
 }
 
 .dashboard-card {
+    position: relative;
     overflow: hidden;
     padding: 30px 28px;
     border-radius: 28px;
@@ -888,8 +875,10 @@ body.dashboard-page main.main {
 
 .section-header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
     margin-bottom: 24px;
 }
 .section-header h2 { font-size: 1.5rem; color: #111827; margin: 0; }
@@ -901,8 +890,10 @@ body.dashboard-page main.main {
 
 .assignment-item {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
     padding: 20px 24px;
     background: var(--surface);
     border: 1px solid var(--border);
@@ -911,7 +902,7 @@ body.dashboard-page main.main {
 }
 .assignment-item:hover { box-shadow: 0 10px 25px rgba(15, 23, 42, .08); transform: translateY(-2px); }
 
-.assignment-info { flex: 1; }
+.assignment-info { flex: 1; min-width: 200px; }
 .assignment-title { margin: 0 0 8px; font-size: 1.05rem; color: #111827; font-weight: 600; }
 .assignment-course { margin: 0 0 6px; font-size: 0.9rem; color: #16A34A; font-weight: 500; }
 .assignment-description { margin: 0; font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
@@ -927,9 +918,10 @@ body.dashboard-page main.main {
    COURSES SECTION
 ══════════════════════════════════════════ */
 .courses-section { margin-top: 48px; }
-.courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-top: 32px; }
+.courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; margin-top: 32px; }
 
 .course-card {
+    position: relative;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), #fbfdff);
     border: 1px solid rgba(79, 70, 229, 0.1);
     border-radius: 24px;
@@ -953,7 +945,7 @@ body.dashboard-page main.main {
 
 .course-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(15, 23, 42, 0.12); border-color: rgba(79, 70, 229, 0.18); }
 
-.course-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.course-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
 .course-badge {
     display: inline-flex;
@@ -1154,6 +1146,7 @@ body.dashboard-page main.main {
 
 .sf-plan-entry {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
@@ -1189,7 +1182,7 @@ body.dashboard-page main.main {
 .sf-plan-entry-delete:hover { background: rgba(220, 38, 38, 0.1); }
 .sf-plan-entry-delete i { font-size: 0.85rem; }
 
-.sf-today-plan-item { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-top: 1px solid var(--border); }
+.sf-today-plan-item { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 0; border-top: 1px solid var(--border); }
 .sf-today-plan-item:first-child { border-top: none; }
 .sf-today-plan-subject { font-weight: 600; font-size: 0.95rem; color: var(--text); }
 .sf-today-plan-time { font-size: 0.9rem; font-weight: 600; color: var(--accent); }
@@ -1210,7 +1203,7 @@ body.dashboard-page main.main {
 .progress-ring-card { display: grid; gap: 18px; align-content: start; text-align: center; }
 
 .progress-ring {
-    --size: 220px;
+    --size: min(220px, 60vw);
     --progress: 87;
     width: var(--size);
     height: var(--size);
@@ -1259,7 +1252,7 @@ body.dashboard-page main.main {
 
 .subject-progress-list { display: grid; gap: 16px; }
 .subject-progress-item { display: grid; gap: 10px; padding: 16px 18px; border-radius: 18px; background: #F7FCF9; border: 1px solid rgba(148, 163, 184, 0.14); }
-.subject-row { display: flex; justify-content: space-between; gap: 12px; font-size: 0.95rem; }
+.subject-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 0.95rem; }
 .subject-row span { color: #334155; font-weight: 600; }
 .subject-row strong { color: #111827; }
 
@@ -1274,7 +1267,7 @@ body.dashboard-page main.main {
 /* ══════════════════════════════════════════
    STUDY PLAN FORM
 ══════════════════════════════════════════ */
-.study-plan-form-container { max-width: 500px; margin: 2rem auto; background: #fff; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+.study-plan-form-container { width: 100%; max-width: 500px; margin: 2rem auto; background: #fff; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
 .study-plan-form h2 { margin-bottom: 0.25rem; }
 .form-subtitle { color: #6b7280; font-size: 0.9rem; margin-bottom: 1.5rem; }
 
@@ -1310,7 +1303,7 @@ body.dashboard-page main.main {
 
 .form-row { margin-bottom: 1.5rem; }
 .form-row label { display: block; margin-bottom: 0.4rem; font-size: 0.9rem; font-weight: 500; }
-.form-row input { width: 70%; padding: 0.6rem 0.75rem; border: 1px solid #e5e7eb; border-radius: 8px; font-size: 0.9rem; }
+.form-row input { width: 100%; max-width: 100%; padding: 0.6rem 0.75rem; border: 1px solid #e5e7eb; border-radius: 8px; font-size: 0.9rem; }
 
 .form-message { margin-top: 1rem; font-size: 0.875rem; color: #16a34a; text-align: center; min-height: 1.2rem; }
 
@@ -1363,7 +1356,7 @@ body.dashboard-page main.main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-image: linear-gradient(135deg, rgba(22, 163, 74, 0.90), rgba(239, 68, 68, 0.72)), url("assets/JACK2.jpeg");
+    background-image: linear-gradient(135deg, #7c3aed, rgba(121, 70, 202, 0.72)), url("assets/JACK2.jpeg");
 }
 
 .brand-panel > * { position: relative; z-index: 1; }
@@ -1374,7 +1367,7 @@ body.dashboard-page main.main {
 
 .logo-dot { width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; }
 
-.brand-headline { font-size: 4rem; line-height: 1.1; font-weight: 900; margin: 40px 0 20px; }
+.brand-headline { font-size: clamp(1.8rem, 5vw, 4rem); line-height: 1.15; font-weight: 900; margin: 40px 0 20px; }
 .brand-headline span { color: #FEF08A; }
 .brand-sub { max-width: 420px; line-height: 1.7; opacity: .9; }
 
@@ -1385,9 +1378,6 @@ body.dashboard-page main.main {
 /* ---------- Right form panel ---------- */
 .form-panel { padding: 60px; background: #fff; }
 
-/* Bare .top — used for the login-card top bar. (There's also a
-   sidebar-scoped `aside.sidebar .top` further down — different
-   element, deliberately separate.) */
 .top {
     display: flex;
     justify-content: space-between;
@@ -1409,8 +1399,6 @@ body.dashboard-page main.main {
 .pan h2 { font-size: 1.4rem; font-weight: 700; color: #1f2937; letter-spacing: .5px; margin: 0; }
 .pan h2 span { color: #16A34A; }
 
-/* Bare .close — login-card close button. (There's also a
-   sidebar-scoped `aside.sidebar .close` further down.) */
 .close {
     width: 38px; height: 38px;
     display: flex; justify-content: center; align-items: center;
@@ -1438,11 +1426,10 @@ body.dashboard-page main.main {
 
 .password-toggle { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); border: none; background: none; cursor: pointer; font-size: 16px; line-height: 1; padding: 4px; }
 
-/* error-msg hidden by default; JS sets style.display = 'block' */
 .error-msg { display: none; margin-top: 6px; color: #ef4444; font-size: 13px; }
 .input-error { border-color: #ef4444 !important; background: #fff5f5 !important; }
 
-.form-meta { display: flex; justify-content: space-between; align-items: center; margin: 20px 0; }
+.form-meta { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; margin: 20px 0; }
 .remember { display: flex; align-items: center; gap: 8px; color: #4b5563; font-size: 14px; cursor: pointer; }
 .forgot { text-decoration: none; color: #7c3aed; font-weight: 600; }
 
@@ -1455,8 +1442,6 @@ body.dashboard-page main.main {
 .btn-login:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(22, 163, 74, .35); }
 .btn-login:disabled { opacity: 0.7; cursor: not-allowed; transform: none; box-shadow: none; }
 
-/* .form-divider is ONLY the "or continue with" line divider here.
-   The dropdown separator is .menu-divider elsewhere. */
 .form-divider { position: relative; margin: 28px 0; text-align: center; color: #9ca3af; font-size: 14px; }
 .form-divider::before, .form-divider::after { content: ""; position: absolute; top: 50%; width: 35%; height: 1px; background: #e5e7eb; }
 .form-divider::before { left: 0; }
@@ -1481,6 +1466,7 @@ body.dashboard-page main.main {
     position: fixed;
     top: 30px;
     right: 30px;
+    max-width: calc(100vw - 32px);
     padding: 14px 20px;
     background: #111827;
     color: #fff;
@@ -1498,11 +1484,6 @@ body.dashboard-page main.main {
 
 /* ══════════════════════════════════════════
    SIDEBAR
-   NOTE: `.sidebar-nav a` (below) and `aside.sidebar .nav-item`
-   (further down) are two different naming conventions styling
-   sidebar links. Check which class your <a> tags actually use in
-   the HTML — the unused one should be deleted so they stop
-   fighting for specificity. Left both in for now so nothing breaks.
 ══════════════════════════════════════════ */
 aside.sidebar.sidebar-collapsed { opacity: 0; pointer-events: none; }
 aside.sidebar.sidebar-collapsed .top,
@@ -1704,6 +1685,7 @@ body.learning-page aside.sidebar .nav-item.active { background: var(--accent-lig
     bottom: 24px;
     left: 50%;
     transform: translateX(-50%) translateY(20px);
+    max-width: calc(100vw - 32px);
     background: #16a34a;
     color: white;
     padding: 0.75rem 1.5rem;
@@ -1720,7 +1702,7 @@ body.learning-page aside.sidebar .nav-item.active { background: var(--accent-lig
 .sf-toast-show { opacity: 1; transform: translateX(-50%) translateY(0); }
 .sf-toast-error { background: #dc2626; }
 
-.study-finish-section { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.study-finish-section { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
 .study-finish-text h3 { margin-bottom: 0.5rem; }
 .study-finish-text p { color: #6b7280; }
 
@@ -1742,17 +1724,6 @@ body.learning-page aside.sidebar .nav-item.active { background: var(--accent-lig
 .sf-finish-btn:active { transform: scale(0.97); }
 .sf-finish-btn:focus-visible { outline: 2px solid #16A34A; outline-offset: 2px; }
 
-
-/* ══════════════════════════════════════════════════════════════
-   ══════════════════════════════════════════════════════════════
-   MOBILE VIEW — all @media rules, ordered widest → narrowest.
-   Each breakpoint below was previously scattered across 3-4
-   separate blocks in different parts of the file; consolidated
-   into one block per breakpoint here.
-   ══════════════════════════════════════════════════════════════
-══════════════════════════════════════════════════════════════ */
-
-
 .trust-strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1761,9 +1732,6 @@ body.learning-page aside.sidebar .nav-item.active { background: var(--accent-lig
   margin: 0 auto;
   padding: 2rem 1.25rem;
 }
-
-
-
 
 /* ══════════════════════════════════════════
    AUDIENCE SECTION
@@ -1837,7 +1805,6 @@ body.learning-page aside.sidebar .nav-item.active { background: var(--accent-lig
     flex-shrink: 0;
 }
 
-
 .trust-pill {
   background: #fff;
   border: 1px solid #eee;
@@ -1856,7 +1823,7 @@ body.learning-page aside.sidebar .nav-item.active { background: var(--accent-lig
 .trust-pill strong {
   display: block;
   font-family: 'Inter', sans-serif;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: 700;
   color: #7C3AED;
   margin-bottom: 0.35rem;
@@ -1868,83 +1835,68 @@ body.learning-page aside.sidebar .nav-item.active { background: var(--accent-lig
   color: #070303;
 }
 
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE — exactly ONE query for tablet, ONE for mobile.
+   Desktop = everything above (the default/base styles).
+   Every old scattered breakpoint (1024/900/768/600/500/480) has
+   been merged into these two so nothing fights or gets skipped.
+══════════════════════════════════════════════════════════════ */
 
- 
+/* ---------------------------------------------------------------
+   TABLET  (≤ 1024px)
+   Sidebar shrinks to icon-only rail, grids drop to 2-up/1-up
+   where they'd otherwise get cramped, hero art and side-lists
+   that don't fit a mid-size screen get hidden.
+--------------------------------------------------------------- */
+@media (max-width: 1024px) {
 
-
-
-/* ---------- Tablet (1024–769px): icon-only sidebar ---------- */
-@media (max-width: 1024px) and (min-width: 769px) {
+    /* ---- sidebar: icon-only rail ---- */
     aside.sidebar,
     body.learning-page aside.sidebar {
         width: 80px;
         padding: 24px 10px;
     }
- .trust-strip {
-    grid-template-columns: 1fr;
-  }
-    .main,
-    body.dashboard-page main.main,
-    body.learning-page main.main {
-        margin-left: 80px !important;
-    }
-
     aside.sidebar .nav-section-label { display: none; }
-
     aside.sidebar .nav-item {
         font-size: 0;
         justify-content: center;
         padding: 12px;
         gap: 0;
     }
-
     aside.sidebar .nav-item i { font-size: 1.25rem; margin: 0; width: auto; }
-
     aside.sidebar .sidebar-logo h2 { display: none; }
     aside.sidebar .sidebar-logo img { margin: 0 auto; padding: 4px; width: 40px; height: auto; }
     aside.sidebar .sidebar-logo { justify-content: center; gap: 0; }
     aside.sidebar .close { display: none; }
     aside.sidebar .top { justify-content: center; }
-
     .sidebar-footer a { font-size: 0; justify-content: center; padding: 12px; }
     .sidebar-footer a i { font-size: 1.25rem; margin: 0; }
-}
 
-/* ---------- ≤900px: nav collapses, mobile header row switches on ---------- */
-@media (max-width: 900px) {
-    /* layout stacking */
-    .page-header { flex-direction: column; align-items: stretch; }
-    .dashboard-cards { grid-template-columns: 1fr; }
-    .courses-grid { grid-template-columns: 1fr; }
-    .assignment-item { flex-direction: column; align-items: flex-start; }
-    .assignment-due { align-items: flex-start; margin-top: 12px; min-width: 100%; }
-    .section-header { flex-direction: column; align-items: flex-start; }
-    .view-all { margin-top: 12px; }
-    .courses-filter { flex-direction: column; }
-    .filter-btn { width: 100%; }
-    .schedule-overview { grid-template-columns: 1fr; }
-
-    /* site header / hero */
-    .home-hero { min-height: auto; padding: 110px 22px 56px; flex-direction: column; }
-    .home-hero h1 { font-size: 36px; }
-    .main-nav { display: none; }
-    .site-header {
-        padding: 12px 18px;
-        flex-wrap: wrap;
-        align-items: center;
+    .main,
+    body.dashboard-page main.main,
+    body.learning-page main.main {
+        margin-left: 80px !important;
+        padding: 24px;
     }
 
-    /* hero feature list hidden on tablets and below; hero copy full-width */
+    /* ---- grids drop a column ---- */
+    .dashboard-cards { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .courses-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .schedule-overview { grid-template-columns: 1fr; }
+    .progress-hero,
+    .progress-section { grid-template-columns: 1fr; }
+    .trust-strip { grid-template-columns: repeat(2, 1fr); }
+    .audience-section { grid-template-columns: 1fr; gap: 40px; padding: 70px 6%; }
+
+    /* ---- hero: drop the rotating side list, keep copy full width ---- */
     .hero-feature-list { display: none; }
     .hero-inner { max-width: 100%; }
+    .home-hero { padding: 100px 4vw 48px; }
 
-    .menu-toggle {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: auto;
-    }
-
+    /* ---- public site nav collapses to hamburger ---- */
+    .main-nav { display: none; }
+    .menu-toggle { display: inline-flex; align-items: center; justify-content: center; margin-left: auto; }
+    .site-header { padding: 14px 20px; flex-wrap: wrap; }
     .site-nav {
         display: none;
         width: 100%;
@@ -1960,20 +1912,11 @@ body.learning-page aside.sidebar .nav-item.active { background: var(--accent-lig
         box-shadow: 0 18px 40px rgba(15, 23, 42, 0.24);
         backdrop-filter: blur(16px);
     }
+    .site-nav.active { display: flex; }
+    .site-nav a { display: block; padding: 12px 14px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); }
+    .site-actions { order: 3; margin-left: auto; }
 
-    .site-nav a {
-        display: block;
-        padding: 12px 14px;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.05);
-    }
-
-    .site-actions {
-        order: 3;
-        margin-left: auto;
-    }
-
-    /* off-canvas public nav dropdown */
+    /* off-canvas public nav dropdown (if used instead of .site-nav) */
     .nav {
         display: block;
         position: absolute;
@@ -1990,95 +1933,88 @@ body.learning-page aside.sidebar .nav-item.active { background: var(--accent-lig
         z-index: 140;
     }
     .nav.active { display: flex; }
-
-    .nav .nav-search, .nav .nav-actions { display: flex; width: 100%; }
-    .nav .nav-search { flex-wrap: wrap; margin-bottom: 0; }
-    .nav .nav-actions { flex-wrap: wrap; margin-bottom: 0; }
-
+    .nav .nav-search, .nav .nav-actions { display: flex; width: 100%; flex-wrap: wrap; margin-bottom: 0; }
     .nav a { display: block; padding: 10px 12px; border-radius: 10px; color: var(--text); font-weight: 600; }
     .nav a:hover { background: var(--primary-soft); color: var(--primary); }
-
     .nav-search { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
     .nav-search input { flex: 1; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); width: 100%; }
     .nav-search-btn { margin-left: 8px; background: var(--primary); color: #fff; border: none; padding: 10px 12px; border-radius: 10px; cursor: pointer; }
-
     .header-actions .search-icon, .header-actions .cart-icon { display: none; }
-
-    .nav-actions { display: flex; gap: 12px; align-items: center; margin-bottom: 10px; }
+    .nav-actions { display: flex; gap: 12px; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
     .nav-actions a { display: inline-flex; gap: 8px; align-items: center; padding: 8px 12px; border-radius: 8px; text-decoration: none; color: var(--text); background: transparent; border: 1px solid transparent; }
     .nav-actions a.nav-cart { background: var(--primary); color: #fff; border-color: transparent; }
     .nav-actions a.nav-login { background: transparent; color: var(--text); border-color: var(--border); }
     .header-actions .login-link { display: none; }
 
-    /* mobile logo + hamburger row */
-    .mobile-flex-header {
-        display: flex !important;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    .mobile-logo-container { display: flex; align-items: center; gap: 12px; }
-    .mobile-logo-container .mobile-logo { width: 44px; height: auto; border-radius: 10px; background: #DCFCE7; padding: 6px; }
-    .mobile-logo-container .mobile-brand { font-weight: 700; font-size: 1.25rem; color: var(--text, #1f2937); }
-
     #sidebarOpenBtn.toogle-menu { position: static !important; margin: 0 !important; }
 }
 
-/* ---------- ≤768px: login card + dashboard shell go single-column ---------- */
-@media (max-width: 768px) {
-    /* -- login / signup card -- */
-    .card { grid-template-columns: 1fr; }
+/* ---------------------------------------------------------------
+   MOBILE  (≤ 640px)
+   Everything single-column, sidebar becomes a full off-canvas
+   drawer (not the icon rail), forms/cards/pills stack, spacing
+   tightens up. This one block replaces the old 900/768/600/500/480
+   breakpoints entirely.
+--------------------------------------------------------------- */
+@media (max-width: 640px) {
 
-    .brand-panel { padding: 32px 24px; min-height: 220px; }
-    .brand-panel .logo { font-size: 1.15rem; gap: 10px; }
-    .brand-panel .logo img { width: 38px; height: 32px; }
-    .brand-headline { font-size: 2rem; margin: 20px 0 12px; }
-    .brand-sub { max-width: 100%; font-size: 0.9rem; }
-    .features { margin-top: 20px; }
+    /* ---- login / signup card ---- */
+    .card { grid-template-columns: 1fr; }
+    .brand-panel { padding: 28px 22px; min-height: 200px; justify-content: flex-start; gap: 8px; }
+    .brand-panel .logo { font-size: 1.1rem; gap: 10px; }
+    .brand-panel .logo img { width: 36px; height: 30px; }
+    .brand-headline { margin: 12px 0 8px; }
+    .brand-sub { max-width: 100%; font-size: 0.9rem; margin-bottom: 4px; }
+    .features { margin-top: 12px; }
     .features li { padding: 10px 14px; margin-bottom: 10px; font-size: 0.85rem; }
 
-    .form-panel { padding: 32px 24px; }
-    .form-title { font-size: 1.6rem; }
+    .form-panel { padding: 24px 18px; }
+    .form-title { font-size: 1.4rem; }
     .pan { justify-content: flex-start; gap: 10px; }
-    .pan h2 { font-size: 1.2rem; }
-    .input-wrap input { height: 50px; font-size: 14px; }
-    .btn-login, .btn-google { height: 52px; font-size: 15px; }
-    .form-group { margin-bottom: 18px; }
-    .toast { top: 16px; right: 16px; left: 16px; padding: 12px 16px; }
+    .pan h2 { font-size: 1.15rem; }
+    .input-wrap input { height: 46px; padding: 0 42px; font-size: 13.5px; }
+    .input-icon { left: 14px; font-size: 0.9rem; }
+    .password-toggle { right: 12px; font-size: 14px; }
+    .btn-login, .btn-google { height: 48px; font-size: 14px; }
+    .form-group { margin-bottom: 16px; }
+    .form-divider { margin: 20px 0; font-size: 13px; }
+    .register-link { font-size: 13.5px; margin-top: 18px; }
+    .close { width: 34px; height: 34px; }
+    .toast { top: 16px; right: 16px; left: 16px; max-width: none; padding: 12px 16px; }
 
-    /* -- dashboard / app shell -- */
-    body.dashboard-page main.main {
-        margin-left: 0;
-        padding: 16px;
-        display: flex;
-    }
-
-    .main { position: static; padding: 16px; min-height: auto; }
-
+    /* ---- dashboard / app shell: sidebar goes full off-canvas ---- */
     aside.sidebar {
-        position: fixed;
-        inset: 0 auto 0 0;
         width: 260px;
-        height: 100vh;
-        min-height: 100vh;
         padding: 24px 16px;
-        border-right: 1px solid var(--border);
+        transform: translateX(-100%);
         border-bottom: none;
         box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-        transform: translateX(-100%);
-        transition: transform .3s ease, width .3s ease, opacity .3s ease;
     }
     body.learning-page aside.sidebar { width: 240px; padding: 28px 0; }
-
     aside.sidebar.sidebar-collapsed { width: 260px; transform: translateX(-100%); }
     body.learning-page aside.sidebar.sidebar-collapsed { width: 240px; }
     aside.sidebar.sidebar-open { transform: translateX(0); }
-
+    aside.sidebar .nav-section-label { display: block; font-size: 0.72rem; }
+    aside.sidebar .nav-item { font-size: 0.92rem; justify-content: flex-start; padding: 10px 24px; gap: 12px; }
+    aside.sidebar .nav-item i { font-size: 1rem; width: 18px; }
+    aside.sidebar .sidebar-logo h2 { display: block; }
+    aside.sidebar .sidebar-logo img { margin: 0; width: 64px; height: 56px; }
+    aside.sidebar .sidebar-logo { justify-content: flex-start; gap: 10px; }
+    aside.sidebar .close { display: flex; }
+    aside.sidebar .top { justify-content: space-between; }
+    .sidebar-footer a { font-size: 0.92rem; justify-content: flex-start; padding: 10px 24px; }
+    .sidebar-footer a i { font-size: 1rem; margin: 0; }
     .sidebar-overlay { display: block; }
-
     .sidebar-nav { gap: 8px; }
     .sidebar-nav a, .nav-item { padding: 12px 14px; border-radius: 12px; }
+
+    .main,
+    body.dashboard-page main.main,
+    body.learning-page main.main {
+        margin-left: 0 !important;
+        padding: 16px;
+    }
+    .main { position: static; min-height: auto; }
 
     .dashboard-content,
     .courses-filter,
@@ -2087,92 +2023,27 @@ body.learning-page aside.sidebar .nav-item.active { background: var(--accent-lig
     .page-header,
     .settings-grid,
     .settings-card,
-    .courses-grid {
-        margin-left: 0;
-        margin-right: 0;
-    }
+    .courses-grid { margin-left: 0; margin-right: 0; }
 
     .page-header { flex-direction: column; align-items: stretch; gap: 18px; padding: 20px; border-radius: 20px; }
     .header-actions { justify-content: flex-start; flex-wrap: wrap; }
     .icon-btn { width: 46px; height: 46px; }
+    .section-header { flex-direction: column; align-items: flex-start; }
+    .view-all { margin-top: 12px; }
 
-    .study-finish-section { flex-direction: column; align-items: stretch; text-align: center; gap: 1rem; }
+    .study-finish-section { flex-direction: column; align-items: stretch; text-align: center; }
     .sf-finish-btn { justify-content: center; width: 100%; }
 
-    .page-title h1 { font-size: 2rem; }
-    .dashboard-summary { width: 100%; min-width: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .dashboard-cards { grid-template-columns: 1fr; gap: 16px; }
-    .courses-filter { flex-wrap: wrap; gap: 10px; }
-    .courses-grid { grid-template-columns: 1fr; }
-    .progress-hero, .progress-section { grid-template-columns: 1fr; }
-    .progress-ring { --size: 200px; }
-
-    .notification-dropdown, .user-dropdown { width: min(92vw, 320px); right: 0; }
-
-    #sidebarOpenBtn { display: none; }
-    #sidebarOpenBtn.visible { display: flex; }
-
-    .sf-studyplan { padding: 16px; }
-    .sf-studyplan-header { flex-direction: column; align-items: stretch; gap: 12px; }
-    .sf-studyplan-header h2 { font-size: 1.1rem; }
-    .sf-btn-add-plan, .sf-btn-reset-plan { width: 100%; justify-content: center; }
-
-    .schedule-section { gap: 16px; margin-top: 20px; }
-    .schedule-grid { grid-template-columns: 1fr; gap: 14px; }
-    .schedule-card { padding: 18px; }
-    .schedule-overview-card, .schedule-list { padding: 18px; }
-    .schedule-item { grid-template-columns: 1fr; gap: 6px; }
-    .item-time { font-size: 0.85rem; }
-}
-
-/* ---------- ≤600px: home hero + feature cards ---------- */
-@media (max-width: 600px) {
-    .home-hero { min-height: auto; padding: 100px 18px 42px; }
-    .home-hero h1 { font-size: 28px; }
-    .hero-sub { font-size: 15px; }
-    .hero-badge { font-size: 0.75rem; padding: 8px 14px; }
-    .hero-actions { gap: 12px; }
-    .btn-primary.hero-cta,
-    .btn-hero-secondary { width: 100%; justify-content: center; }
-    .cards { grid-template-columns: 1fr; }
-    .trust-strip { grid-template-columns: 1fr; }
-    .audience-section { grid-template-columns: 1fr; gap: 28px; padding: 60px 18px; }
-}
-
-/* ---------- ≤500px: study plan subject grid ---------- */
-@media (max-width: 500px) {
-    .subject-group { grid-template-columns: 1fr; }
-}
-
-/* ---------- ≤480px: small phones ---------- */
-@media (max-width: 480px) {
-    /* -- login / signup card -- */
-    .brand-panel { padding: 32px 24px; min-height: 220px; justify-content: flex-start; gap: 4px; }
-    .brand-panel .logo { font-size: 1.15rem; gap: 10px; }
-    .brand-panel .logo img { width: 38px; height: 32px; }
-    .brand-headline { font-size: 2rem; margin: 12px 0 8px; }
-    .brand-sub { max-width: 100%; font-size: 0.9rem; margin-bottom: 4px; }
-    .features { margin-top: 12px; }
-    .features li { padding: 10px 14px; margin-bottom: 10px; font-size: 0.85rem; }
-
-    .form-panel { padding: 24px 18px; }
-    .form-title { font-size: 1.4rem; }
-    .form-group label { font-size: 0.9rem; }
-    .input-wrap input { height: 46px; padding: 0 40px; font-size: 13.5px; }
-    .input-icon { left: 14px; font-size: 0.9rem; }
-    .password-toggle { right: 12px; font-size: 14px; }
-    .btn-login, .btn-google { height: 48px; font-size: 14px; }
-    .form-divider { margin: 20px 0; font-size: 13px; }
-    .register-link { font-size: 13.5px; margin-top: 18px; }
-    .close { width: 34px; height: 34px; }
-
-    /* -- dashboard / app shell -- */
-    body.dashboard-page main.main { margin-left: 0; padding: 12px; }
-    .page-title h1 { font-size: 1.7rem; }
-    .lead { font-size: 0.95rem; }
     .dashboard-summary { grid-template-columns: 1fr; }
     .summary-chip { padding: 14px 16px; }
+    .dashboard-cards { grid-template-columns: 1fr; gap: 16px; }
+    .courses-grid { grid-template-columns: 1fr; }
+    .courses-filter { flex-direction: column; }
+    .filter-btn { width: 100%; }
+    .assignment-item { flex-direction: column; align-items: flex-start; }
+    .assignment-due { align-items: flex-start; margin-top: 12px; min-width: 100%; }
 
+    .progress-ring { --size: 180px; }
     .progress-ring-card, .progress-panel { padding: 18px; border-radius: 20px; }
     .progress-insight, .milestone-item { padding: 14px; }
     .dashboard-card, .course-card, .settings-card { border-radius: 18px; }
@@ -2180,30 +2051,52 @@ body.learning-page aside.sidebar .nav-item.active { background: var(--accent-lig
     .notification-dropdown, .user-dropdown { width: calc(100vw - 24px); top: 54px; }
     .user-dropdown .profile-header { padding: 14px; }
 
-    .sidebar-nav a, .nav-item { gap: 10px; }
+    #sidebarOpenBtn { display: none; }
+    #sidebarOpenBtn.visible { display: flex; }
 
     .sf-studyplan { padding: 14px; border-radius: 16px; }
-    .sf-btn-add-plan, .sf-btn-reset-plan { font-size: 0.85rem; padding: 10px 14px; }
+    .sf-studyplan-header { flex-direction: column; align-items: stretch; gap: 12px; }
+    .sf-studyplan-header h2 { font-size: 1.1rem; }
+    .sf-btn-add-plan, .sf-btn-reset-plan { width: 100%; justify-content: center; font-size: 0.85rem; padding: 10px 14px; }
 
+    .schedule-section { gap: 16px; margin-top: 20px; }
+    .schedule-grid { grid-template-columns: 1fr; gap: 14px; }
     .schedule-card { padding: 14px; border-radius: 16px; }
     .schedule-card h2 { font-size: 1rem; }
     .schedule-overview-card, .schedule-list { padding: 14px; border-radius: 16px; }
     .schedule-overview-card h3, .schedule-list h3 { font-size: 0.95rem; }
     .schedule-overview-card li { padding: 10px 12px; font-size: 0.88rem; }
+    .schedule-item { grid-template-columns: 1fr; gap: 6px; }
+    .item-time { font-size: 0.85rem; }
 
-    .site-header {
-        padding: 10px 14px;
-    }
+    /* ---- study plan form ---- */
+    .subject-group { grid-template-columns: 1fr; }
 
+    /* ---- home hero / marketing sections ---- */
+    .home-hero { min-height: auto; padding: 96px 18px 42px; }
+    .hero-badge { font-size: 0.75rem; padding: 8px 14px; }
+    .hero-actions { flex-direction: column; align-items: stretch; gap: 12px; }
+    .btn-primary.hero-cta, .btn-hero-secondary { width: 100%; justify-content: center; }
+    .cards { grid-template-columns: 1fr; gap: 14px; }
+    .trust-strip { grid-template-columns: 1fr; padding: 1rem 18px 1.5rem; gap: 12px; }
+    .audience-section { grid-template-columns: 1fr; gap: 28px; padding: 60px 18px; }
+    .present { padding: 54px 18px; }
+    .benefit, .audience-card { padding: 18px; }
+
+    .site-header { padding: 10px 14px; }
     .site-brand-text strong { font-size: 0.98rem; }
     .site-brand-text small { font-size: 0.7rem; }
     .menu-toggle { width: 38px; height: 38px; }
     .site-nav { padding: 12px; border-radius: 16px; }
-    .hero-actions { flex-direction: column; align-items: stretch; }
-    .trust-strip { padding: 1rem 18px 1.5rem; gap: 12px; }
-    .present { padding: 54px 18px; }
-    .cards { gap: 14px; }
-    .benefit, .audience-card { padding: 18px; }
+
+    /* ---- mobile logo + hamburger row swaps in ---- */
+    .mobile-flex-header {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }
 
 /* =========================================================
@@ -2423,197 +2316,4 @@ select:focus-visible,
 textarea:focus-visible {
     outline: 3px solid rgba(239, 68, 68, .55);
     outline-offset: 2px;
-}
-
-html {
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-}
-
-body {
-    overflow-x: clip;
-}
-
-img,
-video,
-svg,
-canvas {
-    max-width: 100%;
-    height: auto;
-}
-
-button,
-a {
-    -webkit-tap-highlight-color: transparent;
-}
-
-body.nav-open {
-    overflow: hidden;
-}
-
-.site-header,
-.home-hero,
-.present,
-.audience-section,
-.trust-strip,
-.dashboard-content,
-.dashboard-grid-layout,
-.courses-grid,
-.cards,
-.benefit,
-.audience-card,
-.hero-actions {
-    min-width: 0;
-}
-
-.site-nav a,
-.site-link,
-.btn-primary.hero-cta,
-.btn-hero-secondary,
-.sf-btn {
-    min-height: 44px;
-}
-
-.home-hero h1,
-.present-content h2,
-.audience-copy h2,
-.dashboard-hero-card h1 {
-    overflow-wrap: anywhere;
-}
-
-.trust-strip {
-    display: grid;
-    gap: 16px;
-    padding: 24px 5vw 0;
-}
-
-.audience-section {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-    gap: 32px;
-    align-items: center;
-}
-
-.menu-toggle {
-    display: none;
-}
-
-@media (max-width: 900px) {
-    .site-header {
-        gap: 14px;
-    }
-
-    .site-nav {
-        position: absolute;
-        left: 18px;
-        right: 18px;
-        top: calc(100% + 12px);
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-        padding: 14px;
-        border-radius: 18px;
-        background: rgba(15, 23, 42, 0.94);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.28);
-        backdrop-filter: blur(16px);
-        z-index: 20;
-    }
-
-    .site-nav.active {
-        display: flex;
-    }
-
-    .site-nav a {
-        width: 100%;
-        padding: 12px 14px;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.05);
-    }
-
-    .menu-toggle {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        flex: 0 0 auto;
-    }
-
-    .site-actions {
-        margin-left: auto;
-    }
-
-    .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .btn-primary.hero-cta,
-    .btn-hero-secondary {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .home-hero {
-        padding-inline: 18px;
-    }
-
-    .home-hero h1 {
-        font-size: clamp(2.2rem, 9vw, 3.2rem);
-    }
-
-    .present,
-    .audience-section {
-        padding-left: 18px;
-        padding-right: 18px;
-    }
-
-    .present .cards,
-    .audience-section,
-    .trust-strip {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-feature-list {
-        display: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .site-header {
-        padding: 12px 14px;
-    }
-
-    .site-brand-text strong {
-        font-size: 0.98rem;
-    }
-
-    .site-brand-text small {
-        font-size: 0.7rem;
-    }
-
-    .menu-toggle {
-        width: 38px;
-        height: 38px;
-    }
-
-    .home-hero {
-        padding-top: 96px;
-    }
-
-    .hero-badge {
-        gap: 8px;
-        padding: 8px 14px;
-    }
-
-    .benefit,
-    .audience-card {
-        padding: 18px;
-    }
-
-    .trust-strip {
-        padding-top: 18px;
-    }
 }

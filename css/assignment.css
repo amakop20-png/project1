@@ -292,6 +292,19 @@ body.dark-theme .nav-item.active {
 }
 
 @media (max-width: 480px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  img,
+  video,
+  svg,
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
   body {
     overflow-x: hidden;
   }
@@ -330,5 +343,14 @@ body.dark-theme .nav-item.active {
 
   .video-wrapper {
     aspect-ratio: 16 / 10;
+  }
+
+  .task-item {
+    padding: 14px;
+  }
+
+  .task-item .sf-btn {
+    width: 100%;
+    justify-content: center;
   }
 }

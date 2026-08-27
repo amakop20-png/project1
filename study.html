@@ -1,47 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Study Session — Study Flow</title>
+  <title>Study Session - Study Flow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://kit.fontawesome.com/a3fd1d4ff0.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/shared-nav.css">
+  <link rel="stylesheet" href="css/setting.css">
+  <script src="js/theme.js"></script>
 </head>
-
 <body class="dashboard-page study-page">
 
   <main class="main">
-    <aside class="sidebar">
-      <div class="top">
-        <div class="sidebar-logo">
-          <h2>Study Flow</h2>
-          <i class="fa-solid fa-bolt-lightning"></i>
+    <div class="header-actions">
+      <div class="notification-container">
+        <button class="icon-btn" id="bellBtn" aria-label="View notifications">
+          <i class="fa-solid fa-bell"></i>
+          <span class="notification-count" id="notificationCount">3</span>
+        </button>
+
+        <div class="notification-dropdown" id="notificationDropdown">
+          <div class="dropdown-header">
+            <h4>Notifications</h4>
+            <button id="markAllRead">Mark all read</button>
+          </div>
+          <audio id="notificationSound">
+            <source src="sounds/notification.mp3" type="audio/mpeg">
+          </audio>
+          <div class="notification-item unread">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <div>
+              <span><strong>Assignment Due:</strong> Matrix Algebra due today at 11:59 PM</span>
+              <small>15m ago</small>
+            </div>
+          </div>
+          <div class="notification-item unread">
+            <i class="fa-solid fa-comments"></i>
+            <div>
+              <span><strong>Discussion Reply:</strong> Dr. Chen replied to your question</span>
+              <small>1h ago</small>
+            </div>
+          </div>
+          <div class="notification-item unread">
+            <i class="fa-solid fa-award"></i>
+            <div>
+              <span><strong>Milestone:</strong> 5-day study streak unlocked! 🎉</span>
+              <small>3h ago</small>
+            </div>
+          </div>
         </div>
       </div>
-      <a href="dashboard.html" class="nav-item">
-        <i class="fa-solid fa-chart-line"></i> Dashboard
-      </a>
-      <a href="courses.html" class="nav-item active">
-        <i class="fa-solid fa-book-open"></i> Courses
-      </a>
-      <a href="schedule.html" class="nav-item">
-        <i class="fa-solid fa-calendar-days"></i> Schedules
-      </a>
-      <a href="learning.html" class="nav-item">
-        <i class="fa-solid fa-chart-pie"></i> Progress
-      </a>
+
+      <div class="user-container">
+        <button class="user-avatar-btn" id="userBtn" aria-label="User menu">
+          <img
+            src="https://ui-avatars.com/api/?name=Precious+Emmanuel&background=4f46e5&color=fff&size=180"
+            alt="Profile"
+            class="avatar user-avatar">
+          <span class="user-name-inline">Precious E.</span>
+          <i class="fa-solid fa-chevron-down user-caret"></i>
+        </button>
+
+        <div class="user-dropdown" id="userDropdown">
+          <div class="profile-header">
+            <img
+              src="https://ui-avatars.com/api/?name=Precious+Emmanuel&background=4f46e5&color=fff&size=180"
+              alt="Profile Picture"
+              class="avatar"
+              id="dashAvatar"
+              onerror="this.src='https://ui-avatars.com/api/?name=Precious+Emmanuel&background=4f46e5&color=fff&size=180'">
+            <div>
+              <h4 id="dashName">Precious Emmanuel</h4>
+              <p id="dashEmail">amakop20@email.com</p>
+            </div>
+          </div>
+
+          <div class="dropdown-bio">
+            <p id="dashBio">
+              Learning Computer Science & Further Math. <a href="profile.html">Edit →</a>
+            </p>
+          </div>
+
+          <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+          <a href="setting.html"><i class="fa-solid fa-gear"></i> Settings</a>
+          <a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+          <a href="signup.html" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        </div>
+      </div>
+    </div>
+
+    <aside class="sidebar" id="appSidebar">
+      <div class="top">
+        <div class="sidebar-logo">
+          <div class="brand-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="brand-text">
+            <h2>Study<strong>Flow</strong></h2>
+            <span class="brand-sub">LEARNING SUITE</span>
+          </div>
+        </div>
+        <button class="close" id="close-btn" aria-label="Close sidebar">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Main Navigation">
+        <span class="nav-section-label">Learn</span>
+        <a href="dashboard.html" class="nav-item">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="courses.html" class="nav-item">
+          <i class="fa-solid fa-book-open"></i>
+          <span>My Courses</span>
+        </a>
+        <a href="courses.html?tab=explore" class="nav-item">
+          <i class="fa-solid fa-compass"></i>
+          <span>Explore</span>
+        </a>
+
+        <span class="nav-section-label">Plan</span>
+        <a href="schedule.html" class="nav-item">
+          <i class="fa-solid fa-calendar-days"></i>
+          <span>Schedule</span>
+        </a>
+        <a href="assignment.html" class="nav-item">
+          <i class="fa-solid fa-list-check"></i>
+          <span>Assignments</span>
+          <span class="nav-badge alert">3</span>
+        </a>
+
+        <span class="nav-section-label">Track & Connect</span>
+        <a href="learning.html" class="nav-item">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span>Progress</span>
+        </a>
+        <a href="courses.html#discussions" class="nav-item">
+          <i class="fa-solid fa-comments"></i>
+          <span>Discussions</span>
+        </a>
+        <a href="learning.html#certificates" class="nav-item">
+          <i class="fa-solid fa-award"></i>
+          <span>Certificates</span>
+        </a>
+
+        <div class="sidebar-bottom-group">
+          <span class="nav-section-label">Account</span>
+          <a href="profile.html" class="nav-item">
+            <i class="fa-solid fa-user"></i>
+            <span>Profile</span>
+          </a>
+          <a href="setting.html" class="nav-item">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+          </a>
+          <a href="signup.html" class="nav-item logout-link">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Sign Out</span>
+          </a>
+        </div>
+      </nav>
     </aside>
 
     <div class="dashboard-content">
-      <header class="page-header" style="display: flex; justify-content: space-between; align-items: center;">
+      <div class="header-toggle mobile-flex-header" aria-label="Open navigation">
+        <div class="mobile-logo-container">
+          <div class="brand-icon sm">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <span class="mobile-brand">Study<strong>Flow</strong></span>
+        </div>
+        <button id="sidebarOpenBtn" class="toogle-menu" type="button" aria-label="Open sidebar">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+      <header class="page-header study-page-header">
         <div class="page-title">
           <p class="eyebrow">Study Session</p>
           <h1 id="studyTitle">Subject - Topic</h1>
           <p class="lead" id="studyLevelText">Level</p>
         </div>
 
-        <div class="dashboard-summary" style="margin-top: 0;">
+        <div class="dashboard-summary study-summary">
           <div class="summary-chip">
             <span class="summary-value" id="currentStreak">0</span>
             <span class="summary-label">Day Streak <i class="fa-solid fa-fire" style="color: #f59e0b;"></i></span>
@@ -49,16 +195,14 @@
         </div>
       </header>
 
-      <section
-        style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); display: flex; flex-direction: column; gap: 1.5rem; padding: 1.5rem;">
-
-        <div
-          style="width: 100%; aspect-ratio: 16/9; background: #1f2937; border-radius: 8px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <section class="study-session-card">
+        <div class="study-video-wrap">
           <iframe width="100%" height="315" src="https://www.youtube.com/embed/5ce4W8QyPoo" title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
+
         <div class="study-finish-section">
           <div class="study-finish-text">
             <h3>Keep up the momentum!</h3>
@@ -69,315 +213,294 @@
             <i class="fa-solid fa-check-circle"></i> Finish Subject/Topic
           </button>
         </div>
-
-       
-    </div>
-
-    </section>
+      </section>
     </div>
   </main>
 
- 
+  <script src="js/sidebar.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-  const params = new URLSearchParams(window.location.search);
-  const subject = params.get('subject') || 'Mathematics';
-  const topic = params.get('topic') || 'Introduction';
-  const level = params.get('level') || 'Beginner';
+      const params = new URLSearchParams(window.location.search);
+      const subject = params.get('subject') || 'Mathematics';
+      const topic = params.get('topic') || 'Introduction';
+      const level = params.get('level') || 'Beginner';
 
-  document.getElementById('studyTitle').textContent = `${subject} - ${topic}`;
-  document.getElementById('studyLevelText').textContent = `${level} Level`;
+      document.getElementById('studyTitle').textContent = `${subject} - ${topic}`;
+      document.getElementById('studyLevelText').textContent = `${level} Level`;
 
-  const videoLibrary = {
-    'Mathematics|Basic Arithmetic':          '5ce4W8QyPoo',
-    'Mathematics|Fractions':                 '8XmhGjgsiVc',
-    'Mathematics|Algebra':                   'LDIiYKYvvdA',
-    'Mathematics|Geometry':                  '302eJ3TzJQU',
-    'Mathematics|Calculus':                  'GiCojsAWRj0',
-    'Physics|Introduction to Physics':       'CVsdXKO9xlk',
-    'Physics|mechanics':                     'AMjEe0BmkHk',
-    'Physics|Quantum Mechanics':             'gxfpoKgKvGI',
-    'English Language| Grammar':             'SceDmiBEESI',
-    'English Language|Essay Writing':        'UuOWNNvupik',
-    'English Language|Literature Analysis':  'O_-XAcdzb6Y',
-  };
-
-  const key = `${subject}|${topic}`;
-  const videoId = videoLibrary[key] || '5ce4W8QyPoo';
-
-  const iframe = document.querySelector('iframe');
-  if (iframe) {
-    iframe.src = `https://www.youtube.com/embed/${videoId}`;
-  }
-
-  // --- Streak calculation ---
-  window.calculateStreak = function () {
-    const data = JSON.parse(localStorage.getItem('sf_streakData')) || { count: 0, lastDate: null };
-    return data.count;
-  };
-
-  // --- Finish session + save streak/session data ---
-  window.finishStudySession = function (subject, topic, level) {
-    const today = new Date().toDateString();
-    const data = JSON.parse(localStorage.getItem('sf_streakData')) || { count: 0, lastDate: null };
-
-    if (data.lastDate !== today) {
-      const yesterday = new Date();
-      yesterday.setDate(yesterday.getDate() - 1);
-      data.count = data.lastDate === yesterday.toDateString() ? data.count + 1 : 1;
-      data.lastDate = today;
-      localStorage.setItem('sf_streakData', JSON.stringify(data));
-    }
-
-    localStorage.setItem('sf_lastSession', JSON.stringify({ subject, topic, level, date: today }));
-  };
-
-  // --- Toast helper ---
-  function showToast(message, type = 'success') {
-    const toast = document.createElement('div');
-    toast.className = `sf-toast sf-toast-${type}`;
-    toast.innerHTML = `<i class="fa-solid fa-check-circle"></i> ${message}`;
-    document.body.appendChild(toast);
-    requestAnimationFrame(() => toast.classList.add('sf-toast-show'));
-    setTimeout(() => {
-      toast.classList.remove('sf-toast-show');
-      setTimeout(() => toast.remove(), 300);
-    }, 1500);
-  }
-
-  // --- Show current streak on page load ---
-  const streakEl = document.getElementById('currentStreak');
-  if (streakEl) streakEl.textContent = window.calculateStreak();
-
-  // --- Wire up finish button ---
-  const btn = document.getElementById('finishStudyBtn');
-  if (btn) {
-    btn.addEventListener('click', () => {
-      try {
-        window.finishStudySession(subject, topic, level);
-
-        if (streakEl) streakEl.textContent = window.calculateStreak();
-
-        showToast(`Nice work! You finished ${topic} 🎉`, 'success');
-
-        setTimeout(() => {
-          window.location.href = 'learning.html';
-        }, 1500);
-      } catch (err) {
-        console.error('Error finishing study session:', err);
-        showToast('Something went wrong, please try again', 'error');
-      }
-    });
-  }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  // --- Shared progress-tracking helpers (must match video page's keys exactly) ---
-  const SF_LOG_KEY = 'sf_completedLog';
-  const SF_STREAK_KEY = 'sf_streakData';
-
-  function getCompletedLog() {
-    try {
-      return JSON.parse(localStorage.getItem(SF_LOG_KEY)) || [];
-    } catch (err) {
-      console.error('Failed to parse sf_completedLog:', err);
-      return [];
-    }
-  }
-
-  function calculateStreak() {
-    const data = JSON.parse(localStorage.getItem(SF_STREAK_KEY)) || { count: 0, lastDate: null };
-    return data.count;
-  }
-
-  function calculateSubjectStats() {
-    const plan = JSON.parse(localStorage.getItem('sf_studyPlan')) || [];
-    const log = getCompletedLog();
-
-    const plannedBySubject = {};
-    plan.forEach(p => {
-      plannedBySubject[p.subject] = (plannedBySubject[p.subject] || 0) + 1;
-    });
-
-    const completedBySubject = {};
-    log.forEach(l => {
-      completedBySubject[l.subject] = (completedBySubject[l.subject] || 0) + 1;
-    });
-
-    const subjects = new Set([...Object.keys(plannedBySubject), ...Object.keys(completedBySubject)]);
-    const stats = [];
-
-    subjects.forEach(subject => {
-      const planned = plannedBySubject[subject] || 0;
-      const completed = completedBySubject[subject] || 0;
-      const percent = planned > 0
-        ? Math.min(100, Math.round((completed / planned) * 100))
-        : (completed > 0 ? 100 : 0);
-      stats.push({ subject, planned, completed, percent });
-    });
-
-    return stats;
-  }
-
-  function calculateOverallStats() {
-    const log = getCompletedLog();
-    const subjectStats = calculateSubjectStats();
-
-    const totalMinutes = log.reduce((sum, entry) => sum + (entry.duration || 0), 0);
-    const hoursStudied = Math.round((totalMinutes / 60) * 10) / 10;
-    const tasksCompleted = log.length;
-
-    const overallCompletion = subjectStats.length > 0
-      ? Math.round(subjectStats.reduce((sum, s) => sum + s.percent, 0) / subjectStats.length)
-      : 0;
-
-    return {
-      overallCompletion,
-      hoursStudied,
-      tasksCompleted,
-      streak: calculateStreak()
-    };
-  }
-
-  /* ---------- Progress page: real stats + animated ring ---------- */
-  function initProgressCounters() {
-    const ring = document.getElementById("progressRing");
-    const ringPercent = document.getElementById("ringPercent");
-    const summaryValues = document.querySelectorAll(".dashboard-summary [data-count]");
-    const subjectList = document.querySelector(".subject-progress-list");
-    const streakHeading = document.querySelector(".progress-insight h3");
-
-    if (!ring && !subjectList && summaryValues.length === 0) return;
-
-    const overall = calculateOverallStats();
-    const subjectStats = calculateSubjectStats();
-
-    function animateValue({ from = 0, to, duration = 1000, onUpdate, onComplete }) {
-      if (to <= from) {
-        onUpdate(to);
-        onComplete?.();
-        return;
-      }
-
-      const startTime = performance.now();
-
-      const step = (now) => {
-        const elapsed = now - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const current = Math.round(from + (to - from) * eased);
-
-        onUpdate(current);
-
-        if (progress < 1) {
-          requestAnimationFrame(step);
-        }
-         else {
-          onUpdate(to);
-          onComplete?.();
-        }
+      const videoLibrary = {
+        'Mathematics|Basic Arithmetic': '5ce4W8QyPoo',
+        'Mathematics|Fractions': '8XmhGjgsiVc',
+        'Mathematics|Algebra': 'LDIiYKYvvdA',
+        'Mathematics|Geometry': '302eJ3TzJQU',
+        'Mathematics|Calculus': 'GiCojsAWRj0',
+        'Physics|Introduction to Physics': 'CVsdXKO9xlk',
+        'Physics|mechanics': 'AMjEe0BmkHk',
+        'Physics|Quantum Mechanics': 'gxfpoKgKvGI',
+        'English Language| Grammar': 'SceDmiBEESI',
+        'English Language|Essay Writing': 'UuOWNNvupik',
+        'English Language|Literature Analysis': 'O_-XAcdzb6Y',
       };
 
-      requestAnimationFrame(step);
-    }
+      const key = `${subject}|${topic}`;
+      const videoId = videoLibrary[key] || '5ce4W8QyPoo';
 
-    // ---------- Summary chips: Overall completion / Hours studied / Tasks completed ----------
-    summaryValues.forEach((el) => {
-      const label = el.nextElementSibling?.textContent?.toLowerCase() || "";
-      let target = 0;
-      let suffix = "";
-
-      if (label.includes("completion")) {
-        target = overall.overallCompletion;
-        suffix = "%";
-      } else if (label.includes("hours")) {
-        target = overall.hoursStudied;
-      } else if (label.includes("tasks")) {
-        target = overall.tasksCompleted;
-      } else {
-        target = parseInt(el.dataset.count, 10) || 0;
-        suffix = el.textContent.trim().endsWith("%") ? "%" : "";
+      const iframe = document.querySelector('iframe');
+      if (iframe) {
+        iframe.src = `https://www.youtube.com/embed/${videoId}`;
       }
 
-      el.dataset.count = target;
-      el.textContent = `0${suffix}`; // start visibly at zero, then count up
+      window.calculateStreak = function () {
+        const data = JSON.parse(localStorage.getItem('sf_streakData')) || { count: 0, lastDate: null };
+        return data.count;
+      };
 
-      animateValue({
-        to: target,
-        duration: 1000,
-        onUpdate: (val) => { el.textContent = `${val}${suffix}`; }
-      });
-    });
+      window.finishStudySession = function (subject, topic, level) {
+        const today = new Date().toDateString();
+        const data = JSON.parse(localStorage.getItem('sf_streakData')) || { count: 0, lastDate: null };
 
-    // ---------- Subject progress bars ----------
-    if (subjectList) {
-      subjectList.innerHTML = "";
+        if (data.lastDate !== today) {
+          const yesterday = new Date();
+          yesterday.setDate(yesterday.getDate() - 1);
+          data.count = data.lastDate === yesterday.toDateString() ? data.count + 1 : 1;
+          data.lastDate = today;
+          localStorage.setItem('sf_streakData', JSON.stringify(data));
+        }
 
-      if (subjectStats.length === 0) {
-        const empty = document.createElement("p");
-        empty.className = "progress-empty";
-        empty.textContent = "No study data yet. Complete a session to see progress here.";
-        subjectList.appendChild(empty);
-      } else {
-        subjectStats.forEach((stat, index) => {
-          const item = document.createElement("div");
-          item.className = "subject-progress-item";
-          item.dataset.progress = stat.percent;
-          item.innerHTML = `
-            <div class="subject-row">
-              <span>${stat.subject}</span>
-              <strong class="subject-percent">0%</strong>
-            </div>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width: 0%;"></div>
-            </div>
-          `;
-          subjectList.appendChild(item);
+        localStorage.setItem('sf_lastSession', JSON.stringify({ subject, topic, level, date: today }));
+      };
 
-          const fill = item.querySelector(".progress-fill");
-          const percentLabel = item.querySelector(".subject-percent");
+      function showToast(message, type = 'success') {
+        const toast = document.createElement('div');
+        toast.className = `sf-toast sf-toast-${type}`;
+        toast.innerHTML = `<i class="fa-solid fa-check-circle"></i> ${message}`;
+        document.body.appendChild(toast);
+        requestAnimationFrame(() => toast.classList.add('sf-toast-show'));
+        setTimeout(() => {
+          toast.classList.remove('sf-toast-show');
+          setTimeout(() => toast.remove(), 300);
+        }, 1500);
+      }
 
-          setTimeout(() => {
-            animateValue({
-              to: stat.percent,
-              duration: 900,
-              onUpdate: (val) => {
-                fill.style.width = `${val}%`;
-                percentLabel.textContent = `${val}%`;
-              }
-            });
-          }, index * 150);
+      const streakEl = document.getElementById('currentStreak');
+      if (streakEl) streakEl.textContent = window.calculateStreak();
+
+      const btn = document.getElementById('finishStudyBtn');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          try {
+            window.finishStudySession(subject, topic, level);
+
+            if (streakEl) streakEl.textContent = window.calculateStreak();
+
+            showToast(`Nice work! You finished ${topic} 🎉`, 'success');
+
+            setTimeout(() => {
+              window.location.href = 'learning.html';
+            }, 1500);
+          } catch (err) {
+            console.error('Error finishing study session:', err);
+            showToast('Something went wrong, please try again', 'error');
+          }
         });
       }
-    }
+    });
 
-    if (streakHeading) {
-      streakHeading.textContent = overall.streak === 1
-        ? "1 day streak"
-        : `${overall.streak} day streak`;
-    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const SF_LOG_KEY = 'sf_completedLog';
+      const SF_STREAK_KEY = 'sf_streakData';
 
-    // ---------- Progress ring ----------
-    if (ring && ringPercent) {
-      const target = overall.overallCompletion;
-
-      ring.style.setProperty("--progress", "0");
-      ringPercent.textContent = "10%";
-
-      animateValue({
-        to: target,
-        duration: 1200,
-        onUpdate: (val) => {
-          ring.style.setProperty("--progress", `${val}`);
-          ringPercent.textContent = `${val}%`;
+      function getCompletedLog() {
+        try {
+          return JSON.parse(localStorage.getItem(SF_LOG_KEY)) || [];
+        } catch (err) {
+          console.error('Failed to parse sf_completedLog:', err);
+          return [];
         }
-      });
-    }
-  }
+      }
 
-  initProgressCounters();
-});
+      function calculateStreak() {
+        const data = JSON.parse(localStorage.getItem(SF_STREAK_KEY)) || { count: 0, lastDate: null };
+        return data.count;
+      }
 
+      function calculateSubjectStats() {
+        const plan = JSON.parse(localStorage.getItem('sf_studyPlan')) || [];
+        const log = getCompletedLog();
+
+        const plannedBySubject = {};
+        plan.forEach(p => {
+          plannedBySubject[p.subject] = (plannedBySubject[p.subject] || 0) + 1;
+        });
+
+        const completedBySubject = {};
+        log.forEach(l => {
+          completedBySubject[l.subject] = (completedBySubject[l.subject] || 0) + 1;
+        });
+
+        const subjects = new Set([...Object.keys(plannedBySubject), ...Object.keys(completedBySubject)]);
+        const stats = [];
+
+        subjects.forEach(subject => {
+          const planned = plannedBySubject[subject] || 0;
+          const completed = completedBySubject[subject] || 0;
+          const percent = planned > 0 ? Math.min(100, Math.round((completed / planned) * 100)) : (completed > 0 ? 100 : 0);
+          stats.push({ subject, planned, completed, percent });
+        });
+
+        return stats;
+      }
+
+      function calculateOverallStats() {
+        const log = getCompletedLog();
+        const subjectStats = calculateSubjectStats();
+
+        const totalMinutes = log.reduce((sum, entry) => sum + (entry.duration || 0), 0);
+        const hoursStudied = Math.round((totalMinutes / 60) * 10) / 10;
+        const tasksCompleted = log.length;
+
+        const overallCompletion = subjectStats.length > 0
+          ? Math.round(subjectStats.reduce((sum, s) => sum + s.percent, 0) / subjectStats.length)
+          : 0;
+
+        return {
+          overallCompletion,
+          hoursStudied,
+          tasksCompleted,
+          streak: calculateStreak()
+        };
+      }
+
+      function initProgressCounters() {
+        const ring = document.getElementById("progressRing");
+        const ringPercent = document.getElementById("ringPercent");
+        const summaryValues = document.querySelectorAll(".dashboard-summary [data-count]");
+        const subjectList = document.querySelector(".subject-progress-list");
+        const streakHeading = document.querySelector(".progress-insight h3");
+
+        if (!ring && !subjectList && summaryValues.length === 0) return;
+
+        const overall = calculateOverallStats();
+        const subjectStats = calculateSubjectStats();
+
+        function animateValue({ from = 0, to, duration = 1000, onUpdate, onComplete }) {
+          if (to <= from) {
+            onUpdate(to);
+            onComplete?.();
+            return;
+          }
+
+          const startTime = performance.now();
+
+          const step = (now) => {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.round(from + (to - from) * eased);
+
+            onUpdate(current);
+
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            } else {
+              onUpdate(to);
+              onComplete?.();
+            }
+          };
+
+          requestAnimationFrame(step);
+        }
+
+        summaryValues.forEach((el) => {
+          const label = el.nextElementSibling?.textContent?.toLowerCase() || "";
+          let target = 0;
+          let suffix = "";
+
+          if (label.includes("completion")) {
+            target = overall.overallCompletion;
+            suffix = "%";
+          } else if (label.includes("hours")) {
+            target = overall.hoursStudied;
+          } else if (label.includes("tasks")) {
+            target = overall.tasksCompleted;
+          } else {
+            target = parseInt(el.dataset.count, 10) || 0;
+            suffix = el.textContent.trim().endsWith("%") ? "%" : "";
+          }
+
+          el.dataset.count = target;
+          el.textContent = `0${suffix}`;
+
+          animateValue({
+            to: target,
+            duration: 1000,
+            onUpdate: (val) => { el.textContent = `${val}${suffix}`; }
+          });
+        });
+
+        if (subjectList) {
+          subjectList.innerHTML = "";
+
+          if (subjectStats.length === 0) {
+            const empty = document.createElement("p");
+            empty.className = "progress-empty";
+            empty.textContent = "No study data yet. Complete a session to see progress here.";
+            subjectList.appendChild(empty);
+          } else {
+            subjectStats.forEach((stat, index) => {
+              const item = document.createElement("div");
+              item.className = "subject-progress-item";
+              item.dataset.progress = stat.percent;
+              item.innerHTML = `
+                <div class="subject-row">
+                  <span>${stat.subject}</span>
+                  <strong class="subject-percent">0%</strong>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 0%;"></div>
+                </div>
+              `;
+              subjectList.appendChild(item);
+
+              const fill = item.querySelector(".progress-fill");
+              const percentLabel = item.querySelector(".subject-percent");
+
+              setTimeout(() => {
+                animateValue({
+                  to: stat.percent,
+                  duration: 900,
+                  onUpdate: (val) => {
+                    fill.style.width = `${val}%`;
+                    percentLabel.textContent = `${val}%`;
+                  }
+                });
+              }, index * 150);
+            });
+          }
+        }
+
+        if (streakHeading) {
+          streakHeading.textContent = overall.streak === 1 ? "1 day streak" : `${overall.streak} day streak`;
+        }
+
+        if (ring && ringPercent) {
+          const target = overall.overallCompletion;
+          ring.style.setProperty("--progress", "0");
+          ringPercent.textContent = "10%";
+
+          animateValue({
+            to: target,
+            duration: 1200,
+            onUpdate: (val) => {
+              ring.style.setProperty("--progress", `${val}`);
+              ringPercent.textContent = `${val}%`;
+            }
+          });
+        }
+      }
+
+      initProgressCounters();
+    });
   </script>
 </body>
 </html>
