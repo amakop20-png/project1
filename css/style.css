@@ -2424,3 +2424,196 @@ textarea:focus-visible {
     outline: 3px solid rgba(239, 68, 68, .55);
     outline-offset: 2px;
 }
+
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: clip;
+}
+
+img,
+video,
+svg,
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+body.nav-open {
+    overflow: hidden;
+}
+
+.site-header,
+.home-hero,
+.present,
+.audience-section,
+.trust-strip,
+.dashboard-content,
+.dashboard-grid-layout,
+.courses-grid,
+.cards,
+.benefit,
+.audience-card,
+.hero-actions {
+    min-width: 0;
+}
+
+.site-nav a,
+.site-link,
+.btn-primary.hero-cta,
+.btn-hero-secondary,
+.sf-btn {
+    min-height: 44px;
+}
+
+.home-hero h1,
+.present-content h2,
+.audience-copy h2,
+.dashboard-hero-card h1 {
+    overflow-wrap: anywhere;
+}
+
+.trust-strip {
+    display: grid;
+    gap: 16px;
+    padding: 24px 5vw 0;
+}
+
+.audience-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    gap: 32px;
+    align-items: center;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .site-header {
+        gap: 14px;
+    }
+
+    .site-nav {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        top: calc(100% + 12px);
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 14px;
+        border-radius: 18px;
+        background: rgba(15, 23, 42, 0.94);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.28);
+        backdrop-filter: blur(16px);
+        z-index: 20;
+    }
+
+    .site-nav.active {
+        display: flex;
+    }
+
+    .site-nav a {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+    }
+
+    .site-actions {
+        margin-left: auto;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-primary.hero-cta,
+    .btn-hero-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-hero {
+        padding-inline: 18px;
+    }
+
+    .home-hero h1 {
+        font-size: clamp(2.2rem, 9vw, 3.2rem);
+    }
+
+    .present,
+    .audience-section {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .present .cards,
+    .audience-section,
+    .trust-strip {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-feature-list {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-header {
+        padding: 12px 14px;
+    }
+
+    .site-brand-text strong {
+        font-size: 0.98rem;
+    }
+
+    .site-brand-text small {
+        font-size: 0.7rem;
+    }
+
+    .menu-toggle {
+        width: 38px;
+        height: 38px;
+    }
+
+    .home-hero {
+        padding-top: 96px;
+    }
+
+    .hero-badge {
+        gap: 8px;
+        padding: 8px 14px;
+    }
+
+    .benefit,
+    .audience-card {
+        padding: 18px;
+    }
+
+    .trust-strip {
+        padding-top: 18px;
+    }
+}
