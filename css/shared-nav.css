@@ -99,7 +99,7 @@ body.dashboard-page main.main {
 }
 
 .dashboard-content {
-  max-width: 1320px;
+  max-width: 1310px;
   margin: 0 auto;
 }
 
@@ -135,7 +135,7 @@ body.landing-page {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 120px 8vw 80px;
+  padding: 100px 8vw 80px;
   overflow: hidden;
   background: #090614;
 }
@@ -454,7 +454,7 @@ body.landing-page {
 }
 
 .course-card {
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -1212,7 +1212,7 @@ aside.sidebar .close {
   align-items: center;
   gap: 24px;
   padding: 24px 28px;
-  background: linear-gradient(135deg, rgba(79, 70, 229, 0.06) 0%, rgba(79, 70, 229, 0.015) 100%), var(--surface);
+ 
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-xs);
@@ -1272,13 +1272,12 @@ aside.sidebar .close {
 .sf-btn-primary {
   background: var(--primary);
   color: #ffffff;
-  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
 }
 
 .sf-btn-primary:hover {
-  background: var(--primary-hover);
+  
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
+
 }
 
 .sf-btn-lg {
@@ -1908,7 +1907,7 @@ aside.sidebar .close {
 @media (max-width: 768px) {
   body.dashboard-page main.main {
     margin-left: 0;
-    padding: 14px 14px 44px;
+
   }
 
   aside.sidebar {

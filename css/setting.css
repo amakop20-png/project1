@@ -237,7 +237,7 @@ aside.sidebar .sidebar-logo i {
   font-size: 20px;
   border-radius: 12px;
   padding: 6px;
-  background: var(--accent-light);
+  background: var(--primary);
   box-shadow: 0 4px 12px rgba(79,70,229,.15);
 }
 
