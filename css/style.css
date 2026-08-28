@@ -505,7 +505,7 @@ body.dark-theme .schedule-overview-card li {
 
 .present .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(3,1fr);
     gap: 25px;
 }
 
@@ -2329,6 +2329,158 @@ body.learning-page aside.sidebar .nav-item.active { background: var(--accent-lig
   color: #070303;
 }
 
+
+/* ============ FOOTER ============ */
+.sf-footer {
+  background: var(--sf-color-dark-purple, #5B21B6);
+  color: #EDE9FE;
+  padding: var(--sf-space-xl, 3rem) var(--sf-space-lg, 1.5rem) var(--sf-space-md, 1rem);
+  font-family: 'Inter', sans-serif;
+}
+
+.sf-footer__top {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr 1.4fr;
+  gap: var(--sf-space-lg, 2rem);
+  padding-bottom: var(--sf-space-lg, 2rem);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.sf-footer__logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+}
+
+.sf-footer__logo span {
+  color: var(--sf-color-accent, #FACC15);
+}
+
+.sf-footer__tagline {
+  margin-top: var(--sf-space-sm, 0.75rem);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #D8CCF7;
+  max-width: 280px;
+}
+
+.sf-footer__socials {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: var(--sf-space-md, 1.25rem);
+}
+
+.sf-footer__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--sf-radius-full, 50%);
+  background: rgba(255, 255, 255, 0.08);
+  color: #EDE9FE;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.sf-footer__icon:hover {
+  background: var(--sf-color-accent, #FACC15);
+  color: var(--sf-color-dark-purple, #5B21B6);
+  transform: translateY(-2px);
+}
+
+.sf-footer__heading {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: var(--sf-space-sm, 1rem);
+}
+
+.sf-footer__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.sf-footer__links a {
+  color: #D8CCF7;
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.sf-footer__links a:hover {
+  color: var(--sf-color-accent, #FACC15);
+  padding-left: 4px;
+}
+
+.sf-footer__newsletter-text {
+  font-size: 0.85rem;
+  color: #D8CCF7;
+  margin-bottom: var(--sf-space-sm, 0.75rem);
+}
+
+.sf-footer__form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.sf-footer__input {
+  flex: 1;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--sf-radius-sm, 6px);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.sf-footer__input::placeholder {
+  color: #C4B5FD;
+}
+
+.sf-footer__input:focus {
+  border-color: var(--sf-color-accent, #FACC15);
+}
+
+.sf-footer__btn {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: var(--sf-radius-sm, 6px);
+  background: var(--sf-color-accent, #FACC15);
+  color: #4C1D95;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: filter 0.2s ease, transform 0.15s ease;
+}
+
+.sf-footer__btn:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.sf-footer__bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: var(--sf-space-md, 1.25rem);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #C4B5FD;
+}
+
+
+
 /* ══════════════════════════════════════════════════════════════
    RESPONSIVE — exactly ONE query for tablet, ONE for mobile.
    Desktop = everything above (the default/base styles).
@@ -2591,6 +2743,18 @@ body.learning-page aside.sidebar .nav-item.active { background: var(--accent-lig
         width: 100%;
         margin-bottom: 20px;
     }
+      .sf-footer__top {
+    grid-template-columns: 1fr;
+  }
+  .sf-footer__brand,
+  .sf-footer__newsletter {
+    grid-column: span 1;
+  }
+  .sf-footer__bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
 }
 
 /* =========================================================
