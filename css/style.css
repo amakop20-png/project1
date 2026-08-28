@@ -2453,7 +2453,7 @@ body.learning-page aside.sidebar .nav-item.active { background: var(--accent-lig
   padding: 0.6rem 1rem;
   border: none;
   border-radius: var(--sf-radius-sm, 6px);
-  background: var(--sf-color-accent, #FACC15);
+  background: var(--sf-color-accent, #c415fa8a)   ;
   color: #4C1D95;
   font-weight: 600;
   font-size: 0.85rem;
