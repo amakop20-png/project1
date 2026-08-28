@@ -702,7 +702,7 @@ body.landing-page {
 }
 
 .schedule-card.completed-card {
-  background: var(--surface-subtle);
+  
   border-color: var(--success-light);
 }
 
@@ -1288,7 +1288,6 @@ aside.sidebar .close {
 
 .sf-btn-outline-sm {
   background: transparent;
-  border: 1px solid var(--border);
   color: var(--text-secondary);
   font-size: 12.5px;
   padding: 6px 12px;
